@@ -6,6 +6,7 @@ import { AdminComponent } from './admin.component';
 import { AdminAddComponent } from './admin-add/admin-add.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AdminListComponent } from './admin-list/admin-list.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
