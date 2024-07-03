@@ -7,10 +7,15 @@ import { Specialization } from "../specializations/specialization";
 export class User {
     emp_id :string='';
     department: Departments=new Departments();
+    department_id:number=0;
     qualification: Qualification= new Qualification();
+    qualification_id:number=0;
     specialization: Specialization = new Specialization();
-    gender:Gender = new Gender(); 
+    specialization_id:number=0;
+    gender:Gender = new Gender();
+    gender_id:number=0; 
     role:Role = new Role();
+    role_id:number=0;
     first_name: string='';
     last_name: string='';
     address: string='';

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/users/user';
 import { AdminService } from 'src/app/shared/services/admin.service';
 
@@ -10,7 +11,7 @@ import { AdminService } from 'src/app/shared/services/admin.service';
 export class AdminListComponent implements OnInit {
   searchTerm='';
 
-  constructor(public service:AdminService) { }
+  constructor(public service:AdminService,public router:Router) { }
 
   ngOnInit(): void {
     this.service.listUsers();
@@ -18,9 +19,10 @@ export class AdminListComponent implements OnInit {
 
   editUser(user:User){
     this.populateUserData(user);
+    this.router.navigate(['admin/edit',user.emp_id]);
   }
   populateUserData(user: User) {
-    this.service.
+    this.service.userEditData = Object.assign({},user)
   }
 
 }

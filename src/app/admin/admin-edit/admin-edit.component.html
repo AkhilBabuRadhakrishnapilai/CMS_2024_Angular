@@ -1,1 +1,146 @@
-<p>admin-edit works!</p>
+<div class="container">
+    <h3>Edit User</h3>
+    <hr>
+    <!-- template driven form -->
+    <form name="formUser" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <!-- Hidden employee id -->
+        <div class="form-group">
+            <input type="hidden" readonly name="id" [(ngModel)]="service.userEditData.emp_id">
+        </div>
+        <!-- First Name -->
+        <div class="form-group">
+            <label for="name">First Name</label>
+            <input name="first_name" #first_name="ngModel" class="form-control"
+                [(ngModel)]="service.userEditData.first_name">
+            <div class="validation-error" *ngIf="first_name.touched&&first_name.invalid">
+                <div>First name required</div>
+            </div>
+        </div>
+        <br>
+        <!-- last name -->
+        <div class="form-group">
+            <label for="name">Last Name</label>
+            <input name="last_name" #last_name="ngModel" class="form-control"
+                [(ngModel)]="service.userEditData.last_name">
+            <div class="validation-error" *ngIf="last_name.touched&&last_name.invalid">
+                <div>Last name required</div>
+            </div>
+        </div>
+        <br>
+        <!-- email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input name="email" #email="ngModel" class="form-control"
+                [(ngModel)]="service.userEditData.email">
+            <div class="validation-error" *ngIf="email.touched&&email.invalid">
+                <div>Email required</div>
+            </div>
+        </div>
+        <br>
+        <!-- password -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input name="password" #password="ngModel" class="form-control"
+                [(ngModel)]="service.userEditData.password">
+            <div class="validation-error" *ngIf="email.touched&&email.invalid">
+                <div>Password required</div>
+            </div>
+        </div>
+        <br>
+        <!-- Address -->
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input name="address" #address="ngModel" class="form-control"
+                [(ngModel)]="service.userEditData.address">
+            <div class="validation-error" *ngIf="address.touched&&address.invalid">
+                <div>Address required</div>
+            </div>
+        </div>
+        <br>
+        <!-- Phone number -->
+        <!-- <div class="form-group">
+            <label for="phonenumber">Phone Number</label>
+            <input name="phonenumber" #phonenumber="ngModel" class="form-control"
+                [(ngModel)]="employeeService.formEmployeeData.phonenumber">
+            <div class="validation-error" *ngIf="phonenumber.touched&&phonenumber.invalid">
+                <div>Phone Number required</div>
+            </div>
+        </div>
+        <br> -->
+        <!-- Dob -->
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" name="dob" #dob="ngModel" class="form-control"
+                [(ngModel)]="service.userEditData.dob">
+            <div class="validation-error" *ngIf="dob.touched&&dob.invalid">
+                <div>Date required</div>
+            </div>
+        </div>
+        <br>
+        <!-- date of joining -->
+        <div class="form-group">
+            <label for="dob">Date of Joining</label>
+            <input type="date" name="date_of_joining" #date_of_joining="ngModel" class="form-control"
+                [(ngModel)]="service.userEditData.date_of_joining">
+            <div class="validation-error" *ngIf="dob.touched&&dob.invalid">
+                <div>Date required</div>
+            </div>
+        </div>
+        <br>
+        <!-- departmentId -->
+        <!-- <div class="form-group">
+            <label for="departmentId">Department Id</label>
+            <input type="number" name="dept_id" #dept_id="ngModel" class="form-control" [(ngModel)]="employeeService.formEmployeeData.dept_id">
+            <div class="validation-error" *ngIf="dept_id.touched&&dept_id.invalid">
+                <div>Department ID required</div>
+            </div>
+         </div> -->
+         <!-- department -->
+        <div class="form-group">
+            <label>Choose Department</label>
+            <select name="department" id="department" #department_id="ngModel" class="form-control" required
+                [(ngModel)]="service.userEditData.department_id">
+                <option value="0" disabled>Choose Department</option>
+                <option *ngFor="let dept of service.departments" value="{{dept.id}}">{{dept.department_name}}</option>
+            </select>
+            <div class="validation-error" *ngIf="department_id.touched && department_id.invalid">
+                <div>Required</div>
+            </div>
+        </div>
+        <br>
+        <!-- qualification -->
+        <div class="form-group">
+            <label>Choose Qualification</label>
+            <select name="qualification" id="qualification" #qualification_id="ngModel" class="form-control" required
+                [(ngModel)]="service.userEditData.qualification_id">
+                <option value="0" disabled>Choose Qualification</option>
+                <option *ngFor="let qualification of service.qualifications" value="{{qualification.id}}">{{qualification.qualification}}</option>
+            </select>
+            <div class="validation-error" *ngIf="qualification_id.touched && qualification_id.invalid">
+                <div>Required</div>
+            </div>
+        </div>
+        <br>
+        <!-- specialization -->
+        <div class="form-group">
+            <label>Choose Specialization</label>
+            <select name="specialization" id="specialization" #specialization_id="ngModel" class="form-control" required
+                [(ngModel)]="service.userEditData.specialization_id">
+                <option value="0" disabled>Choose Specialization</option>
+                <option *ngFor="let spec of service.specializations" value="{{spec.id}}">{{spec.specialization}}</option>
+            </select>
+            <div class="validation-error" *ngIf="specialization_id.touched && specialization_id.invalid">
+                <div>Required</div>
+            </div>
+        </div>
+        <br>
+        <!-- gender -->
+        <!-- role -->
+
+        <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>

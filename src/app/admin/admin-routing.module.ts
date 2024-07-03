@@ -7,7 +7,7 @@ import { AdminEditComponent } from './admin-edit/admin-edit.component';
 const routes: Routes = [
   {path:'list',component:AdminListComponent},
   {path:'add',component:AdminAddComponent},
-  {path:'edit',component:AdminEditComponent}
+  {path:'edit/:id',component:AdminEditComponent}
 ];
 
 @NgModule({

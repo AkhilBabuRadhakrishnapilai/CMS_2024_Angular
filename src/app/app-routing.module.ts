@@ -4,7 +4,7 @@ import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {
-    path:'users',component:AdminComponent,
+    path:'admin',component:AdminComponent,
     loadChildren:()=>import('./admin/admin.module')
     .then(x=>x.AdminModule)
   }
