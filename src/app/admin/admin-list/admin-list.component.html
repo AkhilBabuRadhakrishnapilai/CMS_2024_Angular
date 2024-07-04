@@ -1,1 +1,40 @@
-<p>admin-list works!</p>
+<!-- add a button to add the employees -->
+<div class="container">
+    <a [routerLink]="['/admin/add']" role="button" class="btn btn-outline-secondary custom-margin">
+        <span><i class="fa fa-user-plus fa-lg"></i></span><br>
+        Add Employees
+    </a>
+
+</div>
+<table class="table table-bordered table-stripped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Gender</th>
+            <th>Role</th>
+            <th>Date of Birth</th>
+            <th>Action</th>
+        </tr> 
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of service.user">
+            <td>{{emp.first_name}}</td>
+            <td>{{emp.last_name}}</td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.department.department_name}}</td>
+            <td>{{emp.gender.gender}}</td>
+            <td>{{emp.role.role_name}}</td>
+            <td>{{emp.dob}}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-danger" >Delete</button>
+                <button class="btn btn-dark" style="margin-left:10px" (click)="editUser(emp)">Edit</button>
+                   <!-- <span><i class="fa-solid fa-arrow-right"></i></span> -->
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
