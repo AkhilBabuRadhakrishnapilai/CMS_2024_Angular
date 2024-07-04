@@ -27,6 +27,32 @@
             </div>
         </div>
         <br>
+        <!-- gender -->
+        <div class="form-group">
+            <label>Gender</label>
+            <select name="gender" id="gender" #gender_id="ngModel" class="form-control" required
+                [(ngModel)]="service.userEditData.gender_id">
+                <option value="0" disabled>Choose Gender</option>
+                <option *ngFor="let genz of service.genders" value="{{genz.id}}">{{genz.gender}}</option>
+            </select>
+            <div class="validation-error" *ngIf="gender_id.touched && gender_id.invalid">
+                <div>Required</div>
+            </div>
+        </div>
+        <br>
+        <!-- qualification -->
+        <div class="form-group">
+            <label>Qualification</label>
+            <select name="qualification" id="qualification" #qualification_id="ngModel" class="form-control" required
+                [(ngModel)]="service.userEditData.qualification_id">
+                <option value="0" disabled>Choose Qualification</option>
+                <option *ngFor="let qualification of service.qualifications" value="{{qualification.id}}">{{qualification.qualification}}</option>
+            </select>
+            <div class="validation-error" *ngIf="qualification_id.touched && qualification_id.invalid">
+                <div>Required</div>
+            </div>
+        </div>
+        <br>
         <!-- email -->
         <div class="form-group">
             <label for="email">Email</label>
@@ -87,14 +113,6 @@
             </div>
         </div>
         <br>
-        <!-- departmentId -->
-        <!-- <div class="form-group">
-            <label for="departmentId">Department Id</label>
-            <input type="number" name="dept_id" #dept_id="ngModel" class="form-control" [(ngModel)]="employeeService.formEmployeeData.dept_id">
-            <div class="validation-error" *ngIf="dept_id.touched&&dept_id.invalid">
-                <div>Department ID required</div>
-            </div>
-         </div> -->
          <!-- department -->
         <div class="form-group">
             <label>Choose Department</label>
@@ -108,19 +126,7 @@
             </div>
         </div>
         <br>
-        <!-- qualification -->
-        <div class="form-group">
-            <label>Choose Qualification</label>
-            <select name="qualification" id="qualification" #qualification_id="ngModel" class="form-control" required
-                [(ngModel)]="service.userEditData.qualification_id">
-                <option value="0" disabled>Choose Qualification</option>
-                <option *ngFor="let qualification of service.qualifications" value="{{qualification.id}}">{{qualification.qualification}}</option>
-            </select>
-            <div class="validation-error" *ngIf="qualification_id.touched && qualification_id.invalid">
-                <div>Required</div>
-            </div>
-        </div>
-        <br>
+        
         <!-- specialization -->
         <div class="form-group">
             <label>Choose Specialization</label>
@@ -134,8 +140,20 @@
             </div>
         </div>
         <br>
-        <!-- gender -->
+        
         <!-- role -->
+        <div class="form-group">
+            <label>Choose Role</label>
+            <select name="role" id="role" #role_id="ngModel" class="form-control" required
+                [(ngModel)]="service.userEditData.role_id">
+                <option value="0" disabled>Choose Role</option>
+                <option *ngFor="let role of service.roles" value="{{role.id}}">{{role.role_name}}</option>
+            </select>
+            <div class="validation-error" *ngIf="role_id.touched && role_id.invalid">
+                <div>Required</div>
+            </div>
+        </div>
+        <br>
 
         <div class="form-group">
             <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">

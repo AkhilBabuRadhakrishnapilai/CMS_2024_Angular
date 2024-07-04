@@ -9,11 +9,18 @@ import { Gender } from '../models/genders/gender';
 import { ResolveStart } from '@angular/router';
 import { Role } from '../models/roles/role';
 import { Observable } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
+  addEmployee(form: NgForm) {
+    throw new Error('Method not implemented.');
+  }
+  insertUser(form: NgForm) {
+    throw new Error('Method not implemented.');
+  }
   user:User[]=[]
   departments:Departments[]=[]
   qualifications:Qualification[]=[]
@@ -95,6 +102,12 @@ export class AdminService {
   //disable user
   disableUser(id:string):Observable<any>{
     console.log("gotchaaa disable");
-    return this.httpClient.delete(environment.apiUrl+"/disable/"+id)
+    return this.httpClient.delete(environment.apiUrl+"/disable/"+id);
+  }
+
+  //add users
+  addUser(user:User):Observable<any>{
+    console.log(user+"gotchaaa add user");
+    return this.httpClient.post(environment.apiUrl+"/addemployee",user);
   }
 }

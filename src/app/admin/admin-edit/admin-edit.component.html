@@ -135,8 +135,31 @@
         </div>
         <br>
         <!-- gender -->
+        <div class="form-group">
+            <label>Choose Gender</label>
+            <select name="gender" id="gender" #gender_id="ngModel" class="form-control" required
+                [(ngModel)]="service.userEditData.gender_id">
+                <option value="0" disabled>Choose Gender</option>
+                <option *ngFor="let genz of service.genders" value="{{genz.id}}">{{genz.gender}}</option>
+            </select>
+            <div class="validation-error" *ngIf="gender_id.touched && gender_id.invalid">
+                <div>Required</div>
+            </div>
+        </div>
+        <br>
         <!-- role -->
-
+        <div class="form-group">
+            <label>Choose Role</label>
+            <select name="role" id="role" #role_id="ngModel" class="form-control" required
+                [(ngModel)]="service.userEditData.role_id">
+                <option value="0" disabled>Choose Role</option>
+                <option *ngFor="let role of service.roles" value="{{role.id}}">{{role.role_name}}</option>
+            </select>
+            <div class="validation-error" *ngIf="role_id.touched && role_id.invalid">
+                <div>Required</div>
+            </div>
+        </div>
+        <br>
         <div class="form-group">
             <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">
                 Submit
