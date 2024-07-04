@@ -126,21 +126,6 @@
             </div>
         </div>
         <br>
-        
-        <!-- specialization -->
-        <div class="form-group">
-            <label>Choose Specialization</label>
-            <select name="specialization" id="specialization" #specialization_id="ngModel" class="form-control" required
-                [(ngModel)]="service.userEditData.specialization_id">
-                <option value="0" disabled>Choose Specialization</option>
-                <option *ngFor="let spec of service.specializations" value="{{spec.id}}">{{spec.specialization}}</option>
-            </select>
-            <div class="validation-error" *ngIf="specialization_id.touched && specialization_id.invalid">
-                <div>Required</div>
-            </div>
-        </div>
-        <br>
-        
         <!-- role -->
         <div class="form-group">
             <label>Choose Role</label>
@@ -150,6 +135,19 @@
                 <option *ngFor="let role of service.roles" value="{{role.id}}">{{role.role_name}}</option>
             </select>
             <div class="validation-error" *ngIf="role_id.touched && role_id.invalid">
+                <div>Required</div>
+            </div>
+        </div>
+        <br>
+        <!-- specialization -->
+        <div class="form-group">
+            <label>Choose Specialization</label>
+            <select name="specialization" id="specialization" #specialization_id="ngModel" class="form-control" required
+                [(ngModel)]="service.userEditData.specialization_id">
+                <option value="0" disabled>Choose Specialization</option>
+                <option *ngFor="let spec of service.specializations" value="{{spec.id}}">{{spec.specialization}}</option>
+            </select>
+            <div class="validation-error" *ngIf="specialization_id.touched && specialization_id.invalid">
                 <div>Required</div>
             </div>
         </div>
