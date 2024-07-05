@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Edit Supplier</title>
+    <style>
+        .validation-error {
+            color: red;
+            font-size: 0.875em;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <h3 class="mb-3">Edit Supplier</h3>
+    <hr>
+    <form name="formMedicine" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <div class="form-group">
+            <input type="hidden" readonly name="id" class="form-control" [(ngModel)]="stockService.formSupplierData.id">
+        </div>
+
+        <div class="form-group">
+            <label for="name" class="form-label">Name:</label>
+            <input name="name" id="name" class="form-control" #name="ngModel" [(ngModel)]="stockService.formSupplierData.name" required>
+            <div class="validation-error" *ngIf="name.touched && name.invalid">
+                <div>name is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="address" class="form-label">Address:</label>
+            <input name="address" id="address" class="form-control" #address="ngModel" [(ngModel)]="stockService.formSupplierData.address" required>
+            <div class="validation-error" *ngIf="address.touched && address.invalid">
+                <div>address is required</div>
+            </div>
+        </div>
+
+       
+        
+
+        <div class="form-group">
+            <label for="phone" class="form-label">Phone Number:</label>
+            <input  name="phone" id="phone" class="form-control" #phone="ngModel" [(ngModel)]="stockService.formSupplierData.phone" required>
+            <div class="validation-error" *ngIf="phone.touched && phone.invalid">
+                <div>phone is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">Email:</label>
+            <input  name="email" id="email" class="form-control" #email="ngModel" [(ngModel)]="stockService.formSupplierData.email" required>
+            <div class="validation-error" *ngIf="email.touched && email.invalid">
+                <div>phone is required</div>
+            </div>
+        </div>
+
+      
+
+        <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybDoOJ4yA1R8z1M3/iqm/tQT8hiH9pOUUMF6pW6FQ0KWKQ2D6" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-Qb06XrO/ytg5zU5Vpo0hbFWxZ2gp4UJ1zB6I8o2ZkLl4zC5AGyyHTqVtQ3kp1LlW" crossorigin="anonymous"></script>
+</body>
+</html>
