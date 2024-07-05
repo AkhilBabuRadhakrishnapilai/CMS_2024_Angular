@@ -6,6 +6,12 @@ import { ReceptionistComponent } from './receptionist.component';
 import { PatientAddComponent } from './patient-add/patient-add.component';
 import { PatientEditComponent } from './patient-edit/patient-edit.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AppointmentAddComponent } from './appointment-add/appointment-add.component';
+import { AppointmentListComponent } from './appointment-list/appointment-list.component';
+import { AppointmentEditComponent } from './appointment-edit/appointment-edit.component';
+
 
 
 @NgModule({
@@ -13,11 +19,17 @@ import { PatientListComponent } from './patient-list/patient-list.component';
     ReceptionistComponent,
     PatientAddComponent,
     PatientEditComponent,
-    PatientListComponent
+    PatientListComponent,
+    AppointmentAddComponent,
+    AppointmentListComponent,
+    AppointmentEditComponent,
+  
   ],
   imports: [
     CommonModule,
-    ReceptionistRoutingModule
+    ReceptionistRoutingModule,
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class ReceptionistModule { }

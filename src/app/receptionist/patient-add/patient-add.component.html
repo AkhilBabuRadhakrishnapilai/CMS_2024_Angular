@@ -1,1 +1,131 @@
-<p>patient-add works!</p>
+<div class="container">
+    <h3>Add New Patient</h3>
+    <hr>
+    <form name="fromPatient" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <div class="form-group">
+            <input type="hidden" readonly name="id" class="form-control"
+                [(ngModel)]="receptionistService.formPatientData.id">
+            <div class="form-group">
+                <input type="hidden" readonly name="name" class="form-control"
+                    [(ngModel)]="receptionistService.formPatientData.name">
+                <div class="form-group">
+                    <label>Name: </label>
+                    <input name="name" #name="ngModel" class="form-control"
+                        [(ngModel)]="receptionistService.formPatientData.name">
+                    <div class="validation-error" *ngIf="name.touched&& name.invalid">
+                        <div style="color: red;">Full name is required</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- gender -->
+            <div class="form-group">
+                <label>Gender: </label>
+                <div class="form-check">
+                    <input type="radio" name="gender" #gender="ngModel" class="form-check-input"
+                        [(ngModel)]="receptionistService.formPatientData.gender" value=1>
+                    <label class="form-check-label">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" name="gender" class="form-check-input"
+                        [(ngModel)]="receptionistService.formPatientData.gender" value=2>
+                    <label class="form-check-label">Female</label>
+                </div>
+                <div class="validation-error" *ngIf="gender.touched && gender.invalid">
+                    <div style="color: red;">Gender is required</div>
+                </div>
+            </div>
+            <br>
+            <!-- email -->
+            <div class="form-group">
+                <input type="hidden" readonly name="email" class="form-control"
+                    [(ngModel)]="receptionistService.formPatientData.email">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input name="email" #email="ngModel" class="form-control"
+                        [(ngModel)]="receptionistService.formPatientData.email">
+                    <div class="validation-error" *ngIf="email.touched&& email.invalid">
+                        <div style="color: red;">Email is required</div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- dob -->
+            <div class="form-group">
+                <label>Date of Birth:</label>
+                <input name="dob" #dob="ngModel" [(ngModel)]="receptionistService.formPatientData.dob"
+                    class="form-control" type="date" required (change)="calculateAge()">
+                <div class="validation-error" *ngIf="dob.touched && dob.invalid">
+                    <div style="color: red;">Date of Birth is required</div>
+                </div>
+            </div>
+            <br>
+            <!-- age -->
+            <!-- <div class="form-group">
+                <label>Age:</label>
+                <input name="age" #age="ngModel" [(ngModel)]="receptionistService.formPatientData.age"
+                    class="form-control" type="number" required>
+                <div class="validation-error" *ngIf="age.touched && age.invalid">
+                    <div style="color: red;">Age is required</div>
+                </div>
+            </div> -->
+            <!-- blood group -->
+           
+            <br><div class="form-group">
+                <label for="blood_group">Blood Group:</label>
+                <select name="blood_group" id="blood_group" #blood_group="ngModel"
+                    [(ngModel)]="receptionistService.formPatientData.blood_group" class="form-control" required>
+                    <option value="">Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+                <div class="validation-error" *ngIf="blood_group.touched && blood_group.invalid">
+                    <div style="color: red;">Blood Group is required</div>
+                </div>
+            </div>
+            <br>
+            <!-- mobile -->
+            <div class="form-group">
+                <label>Mobile: </label>
+                <input type="tel" name="mobile" #mobile="ngModel" class="form-control"
+                    [(ngModel)]="receptionistService.formPatientData.mobile">
+                <div class="validation-error" *ngIf="mobile.touched && mobile.invalid">
+                    <div style="color: red;">Blood Group is required</div>
+                </div>
+            </div>
+            <br>
+            <!-- emergency contact -->
+            <div class="form-group">
+                <label>Emergency Contact: </label>
+                <input type="tel" name="emergency_contact" #emergency_contact="ngModel" class="form-control"
+                    [(ngModel)]="receptionistService.formPatientData.emergency_contact">
+                <div class="validation-error" *ngIf="emergency_contact.touched && emergency_contact.invalid">
+                    <div style="color: red;">Blood Group is required</div>
+                </div>
+            </div>
+            <br>
+            <!-- address -->
+            <div class="form-group">
+                <label>Address: </label>
+                <input type="text" name="address" #address="ngModel" class="form-control"
+                    [(ngModel)]="receptionistService.formPatientData.address">
+                <div class="validation-error" *ngIf="address.touched && address.invalid">
+                    <div style="color: red;">Blood Group is required</div>
+                </div>
+            </div>
+            <br>
+            <!-- submit -->
+            <div class="form-group">
+                <button type="submit" [disabled]="!(form.valid && form.dirty)"
+                    class="btn btn-1g btn-primary form-control">SUBMIT</button>
+            </div>
+        </div>
+    </form>
+
+</div>

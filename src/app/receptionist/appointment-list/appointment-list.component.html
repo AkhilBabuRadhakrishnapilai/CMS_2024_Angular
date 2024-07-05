@@ -1,0 +1,59 @@
+<br>
+<!-- <app-navbar></app-navbar> -->
+<br>
+<!-- to search -->
+<div class="container">
+    <div class="header">
+        <div class="form-control">
+            <input class="form-control" type="text" placeholder="search text here....." [(ngModel)]="term">
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Add a button to add employees -->
+<!-- <div class="container">
+    <a [routerLink]="['/receptionist/patient_add']" role="button" class="btn btn-outline-secondary custom-margin">
+        <span><i class="fa fa-user-plus fa-1g"></i></span><br>
+        Add New Patient
+    </a>
+
+</div> -->
+<br>
+<table class="table table-bordered table-stripped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Op Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Specialization</th>
+            <th>Doctor</th>
+            <th>Appointment Date</th>
+            <th>Time Slot</th>
+            <th>Token</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let appoint of receptionistService.book_appointment">
+            <td>{{ appoint.id }}</td>
+            <td>{{ appoint.patient.opid }}</td>
+            <td>{{ appoint.patient.name }}</td>
+            <td>{{ appoint.patient.age}}</td>
+            <td>{{ appoint.specialization.specialization }}</td>
+            <td>{{ appoint.doctor.user_id.first_name}}</td>
+            <td>{{ appoint.appointment_date }}</td>
+            <td>{{ appoint.time_slot }}</td>
+            <td>{{ appoint.token }}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-danger">x</button>
+                <button class="btn btn-info" style="margin-left: 10px;">Edit</button>
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
+<router-outlet></router-outlet>
