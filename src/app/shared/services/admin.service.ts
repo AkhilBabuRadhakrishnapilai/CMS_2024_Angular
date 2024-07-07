@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { User } from '../models/users/user';
 import {HttpClient} from '@angular/common/http'
 import { environment } from 'src/environments/environment';
-import { Departments } from '../models/departments/departments';
 import { Qualification } from '../models/qualifications/qualification';
 import { Specialization } from '../models/specializations/specialization';
 import { Gender } from '../models/genders/gender';
@@ -22,7 +21,6 @@ export class AdminService {
     throw new Error('Method not implemented.');
   }
   user:User[]=[]
-  departments:Departments[]=[]
   qualifications:Qualification[]=[]
   specializations:Specialization[]=[]
   genders:Gender[]=[]
@@ -39,19 +37,10 @@ export class AdminService {
       console.log("hey");
       console.log(response);
       this.user=response;
-      console.log(this.user[1].department.department_name);
+      // console.log(this.user[1].department.department_name);
     });
   }
 
-  //departments
-  listDepartments():void{
-    this.httpClient.get<Departments[]>(environment.apiUrl+"/departments").subscribe((response:any)=>{
-      console.log("gotcha departments");
-      console.log(response);
-      this.departments=response;
-      console.log("department response"+this.departments[0].department_name);
-    })
-  }
 
   //qualification
   listQualifications():void{
@@ -94,8 +83,8 @@ export class AdminService {
   }
 
   //update User Details
-  updateUser(user:User):Observable<any>{
-    console.log(user+"in service");
+  updateUser(user:any):Observable<any>{
+    console.log(user.emp_id+"in service");
     return this.httpClient.put(environment.apiUrl+"/edit/"+user.emp_id,user);
   }
 
@@ -106,8 +95,8 @@ export class AdminService {
   }
 
   //add users
-  addUser(user:User):Observable<any>{
+  addUser(user:any):Observable<any>{
     console.log(user+"gotchaaa add user");
-    return this.httpClient.post(environment.apiUrl+"/addemployee",user);
+    return this.httpClient.post(environment.apiUrl+"/addemployee/",user);
   }
 }

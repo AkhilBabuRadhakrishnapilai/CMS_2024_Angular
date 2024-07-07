@@ -64,7 +64,7 @@
         </div>
         <br>
         <!-- password -->
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="password">Password</label>
             <input name="password" #password="ngModel" class="form-control"
                 [(ngModel)]="service.userEditData.password">
@@ -72,7 +72,7 @@
                 <div>Password required</div>
             </div>
         </div>
-        <br>
+        <br> -->
         <!-- Address -->
         <div class="form-group">
             <label for="address">Address</label>
@@ -84,15 +84,15 @@
         </div>
         <br>
         <!-- Phone number -->
-        <!-- <div class="form-group">
-            <label for="phonenumber">Phone Number</label>
-            <input name="phonenumber" #phonenumber="ngModel" class="form-control"
-                [(ngModel)]="employeeService.formEmployeeData.phonenumber">
-            <div class="validation-error" *ngIf="phonenumber.touched&&phonenumber.invalid">
+        <div class="form-group">
+            <label for="contact_number">Contact Number</label>
+            <input name="contact_number" #contact_number="ngModel" class="form-control"
+                [(ngModel)]="service.userEditData.contact_number">
+            <div class="validation-error" *ngIf="contact_number.touched&&contact_number.invalid">
                 <div>Phone Number required</div>
             </div>
         </div>
-        <br> -->
+        <br>
         <!-- Dob -->
         <div class="form-group">
             <label for="dob">Date of Birth</label>
@@ -114,7 +114,7 @@
         </div>
         <br>
          <!-- department -->
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label>Choose Department</label>
             <select name="department" id="department" #department_id="ngModel" class="form-control" required
                 [(ngModel)]="service.userEditData.department_id">
@@ -125,7 +125,7 @@
                 <div>Required</div>
             </div>
         </div>
-        <br>
+        <br> -->
         <!-- role -->
         <div class="form-group">
             <label>Choose Role</label>
@@ -140,7 +140,7 @@
         </div>
         <br>
         <!-- specialization -->
-        <div class="form-group">
+        <div class="form-group" *ngIf = "service.userEditData.role_id == 3">
             <label>Choose Specialization</label>
             <select name="specialization" id="specialization" #specialization_id="ngModel" class="form-control" required
                 [(ngModel)]="service.userEditData.specialization_id">
@@ -149,6 +149,16 @@
             </select>
             <div class="validation-error" *ngIf="specialization_id.touched && specialization_id.invalid">
                 <div>Required</div>
+            </div>
+        </div>
+        <br>
+        <!-- Fees -->
+        <div class="form-group" *ngIf = "service.userEditData.role_id == 3">
+            <label for="fees">Fees</label>
+            <input name="fees" #fees="ngModel" class="form-control"
+                [(ngModel)]="service.userEditData.fees">
+            <div class="validation-error" *ngIf="fees.touched&&fees.invalid">
+                <div>Fee required</div>
             </div>
         </div>
         <br>

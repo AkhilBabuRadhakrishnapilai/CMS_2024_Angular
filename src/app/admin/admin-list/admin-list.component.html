@@ -9,10 +9,11 @@
 <table class="table table-bordered table-stripped">
     <thead>
         <tr>
+            <!-- <th>Employee Id</th> -->
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Department</th>
+            <!-- <th>Department</th> -->
             <th>Gender</th>
             <th>Role</th>
             <th>Date of Birth</th>
@@ -21,15 +22,15 @@
     </thead>
     <tbody>
         <tr *ngFor="let emp of service.user">
+            <!-- <td>{{emp.emp_id}}</td> -->
             <td>{{emp.first_name}}</td>
             <td>{{emp.last_name}}</td>
             <td>{{emp.email}}</td>
-            <td>{{emp.department.department_name}}</td>
             <td>{{emp.gender.gender}}</td>
             <td>{{emp.role.role_name}}</td>
             <td>{{emp.dob}}</td>
             <td>
-                <button class="btn btn-sm btn-outline-danger" >Delete</button>
+                <button class="btn btn-sm btn-outline-danger" (click)="disableRecord(emp.emp_id)">Delete</button>
                 <button class="btn btn-dark" style="margin-left:10px" (click)="editUser(emp)">Edit</button>
                    <!-- <span><i class="fa-solid fa-arrow-right"></i></span> -->
             </td>

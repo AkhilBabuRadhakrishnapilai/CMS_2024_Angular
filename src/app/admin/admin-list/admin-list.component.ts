@@ -25,4 +25,16 @@ export class AdminListComponent implements OnInit {
     this.service.userEditData = Object.assign({},user)
   }
 
+  //disable
+  disableRecord(emp_id:string){
+    if(confirm("Are you sure want to disable this record?")){
+      this.service.disableUser(emp_id).subscribe((response:any)=>{
+        console.log(response);
+        this.service.listUsers();
+      },(error)=>{
+        console.log(error);
+      })
+    }
+  }
+
 }
