@@ -7,6 +7,7 @@ import { AppointmentListComponent } from './appointment-list/appointment-list.co
 import { AppointmentAddComponent } from './appointment-add/appointment-add.component';
 import { AppointmentEditComponent } from './appointment-edit/appointment-edit.component';
 
+
 const routes: Routes = [
   {path:'patient_list',component:PatientListComponent},
   {path:'patient_add',component:PatientAddComponent},

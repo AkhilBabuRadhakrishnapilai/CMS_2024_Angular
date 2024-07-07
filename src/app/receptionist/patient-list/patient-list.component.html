@@ -1,5 +1,6 @@
 <br>
-<!-- <app-navbar></app-navbar> -->
+<app-navbar></app-navbar>
+<br>
 <br>
 <!-- to search -->
 <div class="container">
@@ -18,15 +19,14 @@
         <span><i class="fa fa-user-plus fa-1g"></i></span><br>
         Add New Patient
     </a>
-
 </div>
-<div class="container">
+
+<!-- <div class="container">
     <a [routerLink]="['/receptionist/appointment_add']" role="button" class="btn btn-outline-secondary custom-margin">
         <span><i class="fa fa-user-plus fa-1g"></i></span><br>
         Book New Appoinment
     </a>
-
-</div>
+</div> -->
 <br>
 <table class="table table-bordered table-stripped">
     <thead>
@@ -50,11 +50,11 @@
             <td>{{ patient.id }}</td>
             <td>{{ patient.opid }}</td>
             <td>{{ patient.name }}</td>
-            <td>{{ patient.gender.id }}</td>
+            <td>{{ patient?.gender?.gender_type }}</td>
             <td>{{ patient.email }}</td>
             <td>{{ patient.dob }}</td>
             <td>{{ patient.age}}</td>
-            <td>{{ patient.blood_group }}</td>
+            <td>{{ patient.blood_group}}</td>
             <td>{{ patient.mobile }}</td>
             <td>{{ patient.emergency_contact}}</td>
             <td>{{ patient.address }}</td>
@@ -67,4 +67,5 @@
     </tbody>
 
 </table>
+<!-- <app-footer></app-footer> -->
 <router-outlet></router-outlet>

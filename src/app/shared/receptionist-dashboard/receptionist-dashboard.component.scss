@@ -1,0 +1,53 @@
+.custom-margin{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: right;
+}
+// .main-content {
+//     margin-left: 250px; /* Same width as the sidebar */
+//     margin-top: 60px; /* Height of the navbar */
+//     padding: 20px;
+//   }
+.main-content {
+    margin-left: 250px; /* Same width as the sidebar */
+    margin-top: 60px; /* Height of the navbar */
+    margin-bottom: 60px; /* Height of the footer */
+    padding: 20px;
+  }
+  
+  
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.header h1 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #343a40;
+}
+
+.card {
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
+
+.btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn i {
+    margin-right: 10px;
+}

@@ -7,10 +7,11 @@ import { PatientAddComponent } from './patient-add/patient-add.component';
 import { PatientEditComponent } from './patient-edit/patient-edit.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppointmentAddComponent } from './appointment-add/appointment-add.component';
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { AppointmentEditComponent } from './appointment-edit/appointment-edit.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -29,7 +30,9 @@ import { AppointmentEditComponent } from './appointment-edit/appointment-edit.co
     CommonModule,
     ReceptionistRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class ReceptionistModule { }
