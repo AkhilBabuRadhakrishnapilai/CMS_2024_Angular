@@ -1,0 +1,43 @@
+/* Custom CSS */
+.custom-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 12px; /* Adjusted padding for better spacing */
+    text-align: center;
+  }
+  
+  .custom-table th {
+    background-color: #343a40; /* Dark background color for header */
+    color: #fff; /* Text color for header */
+  }
+  
+  .custom-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Light background for even rows */
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #e9ecef; /* Hover background color */
+  }
+  
+  /* Styling for buttons */
+  .btn-secondary {
+    background-color: #6c757d; /* Dark gray background */
+    color: #fff; /* Text color */
+    border-color: #6c757d; /* Border color */
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+    border-color: #5a6268; /* Darker border on hover */
+  }
+  
+  .btn-secondary span {
+    display: block;
+    margin-bottom: 5px; /* Adjust the space between icon and text */
+  }
+  

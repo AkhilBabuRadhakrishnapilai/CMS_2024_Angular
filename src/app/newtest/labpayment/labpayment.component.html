@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient List</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-LdN5f5z0D/8DkOoH8Nmvs5oxvPcFe7bWkMK1t1n8ScGldKrr2i4VZ17XTfO4WJ6me38/CSvI6EeuEaPjuL82gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    body {
+      background-color: #f8f9fa; /* Light background */
+      color: #495057; /* Dark text */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font family for better readability */
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+    }
+    .patient-details {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .patient-details h3 {
+      margin-bottom: 10px;
+    }
+    .lab-tests {
+      list-style-type: none; /* Remove default list styles */
+      padding-left: 0;
+    }
+    .lab-tests li {
+      margin-bottom: 5px;
+    }
+    .table th, .table td {
+      vertical-align: middle; /* Align content vertically */
+    }
+    .btn-secondary.btn-back {
+      background-color: #6c757d; /* Dark gray background color */
+      color: #fff; /* Text color */
+      border-color: #6c757d; /* Border color */
+      width: 120px; /* Adjust width */
+      height: 40px; /* Adjust height */
+      float: right; /* Align to the right */
+      margin-left: 10px; /* Optional: Add margin for spacing */
+    }
+    .btn-secondary.btn-back:hover {
+      background-color: #5a6268; /* Darker gray on hover */
+      border-color: #5a6268; /* Darker border on hover */
+    }
+    .btn-secondary.btn-back span {
+      display: block;
+      margin-bottom: 5px; /* Adjust the space between icon and text */
+    }
+    .btn-print {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="patient-details" id="patientDetails">
+      <h3>Patient Details</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>ID:</strong> {{ labPaymentService.testprescribe1.labtests.appointment.patient.opid }}</p>
+          <p><strong>Name:</strong> {{ labPaymentService.testprescribe1.labtests.appointment.patient.name }}</p>
+          <p><strong>Date of Birth:</strong> {{ labPaymentService.testprescribe1.labtests.appointment.patient.dob }}</p>
+          <p><strong>Blood Group:</strong> {{ labPaymentService.testprescribe1.labtests.appointment.patient.blood_group }}</p>
+          <p><strong>Age:</strong> {{ labPaymentService.testprescribe1.labtests.appointment.patient.age }}</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>Doctor:</strong> {{ labPaymentService.testprescribe1.labtests.appointment.doctor.user_id.first_name }}</p>
+          <p><strong>Prescription Date:</strong> {{ labPaymentService.testprescribe1.date_of_prescribition }}</p>
+          <p><strong>Lab Tests:</strong></p>
+          <ul class="lab-tests">
+            <li *ngFor="let labTest of labPaymentService.testprescribe1.lab_tests_details">
+              {{ labTest.test_name }} - {{ labTest.rate }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Patient Details Table -->
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Blood Group</th>
+            <th>Age</th>
+            <th>Doctor</th>
+            <th>Prescription Date</th>
+            <th>Lab Tests</th>
+            <th>Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ labPaymentService.testprescribe1.labtests.appointment.patient.opid }}</td>
+            <td>{{ labPaymentService.testprescribe1.labtests.appointment.patient.name }}</td>
+            <td>{{ labPaymentService.testprescribe1.labtests.appointment.patient.dob }}</td>
+            <td>{{ labPaymentService.testprescribe1.labtests.appointment.patient.blood_group }}</td>
+            <td>{{ labPaymentService.testprescribe1.labtests.appointment.patient.age }}</td>
+            <td>{{ labPaymentService.testprescribe1.labtests.appointment.doctor.user_id.first_name }}</td>
+            <td>{{ labPaymentService.testprescribe1.date_of_prescribition }}</td>
+            <td>
+              <ul class="lab-tests">
+                <li *ngFor="let labTest of labPaymentService.testprescribe1.lab_tests_details">
+                  {{ labTest.test_name }}
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul class="lab-tests">
+                <li *ngFor="let labTest of labPaymentService.testprescribe1.lab_tests_details">
+                  {{ labTest.rate }}
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Back and Print Buttons -->
+    <div class="text-right">
+      <a [routerLink]="['/newtest/patientdetail']" role="button" class="btn btn-secondary btn-back">
+        <span><i class="fa fa-arrow-left fa-lg"></i></span>
+        <br>
+        BACK
+      </a>
+      <button class="btn btn-primary btn-print" (click)="printPage()">PRINT</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- JavaScript function for printing -->
+  <script>
+    function printPage() {
+      var printContent = document.getElementById("patientDetails").innerHTML;
+      var originalContent = document.body.innerHTML;
+      document.body.innerHTML = printContent;
+      window.print();
+      document.body.innerHTML = originalContent;
+    }
+  </script>
+</body>
+</html>

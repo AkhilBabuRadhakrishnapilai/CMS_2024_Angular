@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts - Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        .custom-margin {
+            margin-bottom: 10px;
+        }
+        .action-buttons {
+            margin-right: 5px;
+        }
+        /* Adjust table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            font-size: 14px; /* Adjust font size */
+            font-family: 'Roboto', sans-serif; /* Specify font family */
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: 600; /* Bold font weight for table headers */
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        /* Search bar style */
+        .rounded {
+            border-radius: 20px;
+        }
+        .btn-outline-secondary {
+            border-color: #007bff;
+            color: #007bff;
+            font-size: 14px; /* Adjust button font size */
+            font-weight: 500; /* Medium font weight for buttons */
+        }
+        .btn-outline-secondary:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .btn-outline-secondary span {
+            display: block;
+            margin-bottom: 5px;
+        }
+        /* Heading and paragraph styles */
+        h5 {
+            font-size: 1.25rem; /* 20px */
+            font-weight: 600;
+            color: #333; /* Darker color for headings */
+            margin-bottom: 1rem;
+            font-family: 'Roboto', sans-serif; /* Specify font family */
+        }
+        p {
+            font-size: 1rem; /* 16px */
+            line-height: 1.5; /* Improved line height for readability */
+            font-family: 'Roboto', sans-serif; /* Specify font family */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Search bar -->
+        <div class="input-group mb-3">
+            <input type="search" class="form-control py-2 border-right-0 rounded-0" placeholder="Search" [(ngModel)]="term" aria-label="Search" aria-describedby="search-addon">
+            <div class="input-group-append">
+                <span class="input-group-text bg-transparent border-left-0 rounded-0" id="search-addon">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div>
+        </div>
+        
+        <!-- Add New Test button -->
+        <a [routerLink]="['/newtest/addlist']" role="button" class="btn btn-outline-secondary custom-margin">
+            <span><i class="fa fa-plus fa-lg"></i></span>
+            <br>
+            ADD NEW TEST
+        </a>
+    </div>
+
+    <!-- Table to display New Tests -->
+    <div class="container mt-4">
+        <h5>Tests List</h5>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Test Name</th>
+                        <th>Low Value</th>
+                        <th>High Value</th>
+                        <th>Unit</th>
+                        <th>Rate</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let test of newtestService.tests | filter:term">
+                        <td>{{ test.id }}</td>
+                        <td>{{ test.test_name }}</td>
+                        <td>{{ test.low_value }}</td>
+                        <td>{{ test.high_value }}</td>
+                        <td>{{ test.unit }}</td>
+                        <td>{{ test.rate }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-danger action-buttons" (click)="disableEmployee(test.id)">Delete</button>
+                            <button class="btn btn-info action-buttons" (click)="updateEmployee(test)">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- BACK button aligned to the right -->
+    <div class="container text-right">
+        <a [routerLink]="['/shared/homelab']" role="button" class="btn btn-secondary">
+            <span><i class="fa fa-arrow-left fa-lg"></i></span>
+            <br>
+            BACK
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

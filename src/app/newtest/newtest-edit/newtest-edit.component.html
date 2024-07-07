@@ -1,0 +1,63 @@
+
+<div class="container">
+  <h3>Add New Test</h3>
+  <hr>
+  <!-- Template Driven Form -->
+  <form name="formNewTest" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    <div class="form-group">
+      <input type="hidden" readonly name="id" class="form-control" [(ngModel)]="newtestservice.formEmployeeData.id">
+    </div>
+    <!-- Test Name -->
+    <div class="form-group">
+      <label>Test Name:</label>
+      <input name="test_name" #testName="ngModel" [(ngModel)]="newtestservice.formEmployeeData.test_name" required>
+      <div class="validation-error" *ngIf="testName.touched && testName.invalid">
+        <div>Test name is required</div>
+      </div>
+    </div>
+    <br>
+    <!-- Low Value -->
+    <div class="form-group">
+      <label>Low Value:</label>
+      <input type="number" name="low_value" #lowValue="ngModel" [(ngModel)]="newtestservice.formEmployeeData.low_value" required>
+      <div class="validation-error" *ngIf="lowValue.touched && lowValue.invalid">
+        <div>Low value is required</div>
+      </div>
+    </div>
+    <br>
+    <!-- High Value -->
+    <div class="form-group">
+      <label>High Value:</label>
+      <input type="number" name="high_value" #highValue="ngModel" [(ngModel)]="newtestservice.formEmployeeData.high_value" required>
+      <div class="validation-error" *ngIf="highValue.touched && highValue.invalid">
+        <div>High value is required</div>
+      </div>
+    </div>
+    <br>
+    <!-- Unit -->
+    <div class="form-group">
+      <label>Unit:</label>
+      <input name="unit" #unit="ngModel" [(ngModel)]="newtestservice.formEmployeeData.unit" required>
+      <div class="validation-error" *ngIf="unit.touched && unit.invalid">
+        <div>Unit is required</div>
+      </div>
+    </div>
+    <br>
+    <!-- Rate -->
+    <div class="form-group">
+      <label>Rate:</label>
+      <input type="number" name="rate" #rate="ngModel" [(ngModel)]="newtestservice.formEmployeeData.rate" required>
+      <div class="validation-error" *ngIf="rate.touched && rate.invalid">
+        <div>Rate is required</div>
+      </div>
+    </div>
+    <br>
+    <!-- Submit Button -->
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-primary form-control">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
