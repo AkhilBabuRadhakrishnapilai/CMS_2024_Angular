@@ -10,6 +10,9 @@ import { AdminService } from 'src/app/shared/services/admin.service';
 })
 export class AdminAddComponent implements OnInit {
    addData={}
+   minDate:string='';
+   maxDate:string='';
+   currentDate:string='';
   constructor(public service:AdminService,public router:Router) { }
 
   ngOnInit(): void {
@@ -23,6 +26,16 @@ export class AdminAddComponent implements OnInit {
     this.service.listQualifications();
     //roles
     this.service.listRoles();
+
+    //dob
+    const today = new Date();
+    const minYear = today.getFullYear()-100;
+    const maxYear = today.getFullYear() -60;
+
+    this.minDate = new Date(minYear, today.getMonth(), today.getDate()).toISOString().split('T')[0];
+    this.maxDate = new Date(maxYear, today.getMonth(), today.getDate()).toISOString().split('T')[0];
+
+    this.currentDate = today.toISOString().split('T')[0];
   }
 
   onSubmit(form:NgForm){

@@ -2,7 +2,7 @@
     <h3>Edit User</h3>
     <hr>
     <!-- template driven form -->
-    <form name="formUser" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    <form name="formUser" #form="ngForm" autocomplete="off" novalidate (ngSubmit)="onSubmit(form)">
         <!-- Hidden employee id -->
         <div class="form-group">
             <input type="hidden" readonly name="emp_id" [(ngModel)]="service.userEditData.emp_id">
@@ -11,9 +11,17 @@
         <div class="form-group">
             <label for="name">First Name</label>
             <input name="first_name" #first_name="ngModel" class="form-control"
-                [(ngModel)]="service.userEditData.first_name">
-            <div class="validation-error" *ngIf="first_name.touched&&first_name.invalid">
-                <div>First name required</div>
+                [(ngModel)]="service.userEditData.first_name" placeholder="Enter the first name......" minlength="3"
+                max="20" pattern="^(?!\s)(?!.*\s)[A-Za-z\s]{3,20}$" required
+                [ngClass]="{'is-invalid':first_name.touched&&first_name.invalid}" autocomplete="off">
+            <!-- validation messages -->
+            <div class="validation-error" *ngIf="first_name.touched && first_name.invalid" style="color:red">
+                <div *ngIf="first_name.errors?.['required']">First Name is invalid or required!</div>
+                <div *ngIf="first_name.errors?.['minlength']">First Name must be at least 3 characters long
+                </div>
+                <div *ngIf="first_name.errors?.['maxlength']">First Name not more than 20 character long</div>
+                <div *ngIf="first_name.errors?.['pattern']">First Name cannot start with space and Enter your
+                    First Name</div>
             </div>
         </div>
         <br>
@@ -21,9 +29,18 @@
         <div class="form-group">
             <label for="name">Last Name</label>
             <input name="last_name" #last_name="ngModel" class="form-control"
-                [(ngModel)]="service.userEditData.last_name">
-            <div class="validation-error" *ngIf="last_name.touched&&last_name.invalid">
-                <div>Last name required</div>
+                [(ngModel)]="service.userEditData.last_name" placeholder="Enter the last name......" minlength="3"
+                max="20" pattern="^(?!\s)(?!.*\s)[A-Za-z\s]{3,20}$" required
+                [ngClass]="{'is-invalid':last_name.touched && last_name.invalid}" autocomplete="off">
+
+            <!-- validation messages -->
+            <div class="validation-error" *ngIf="last_name.touched && last_name.invalid" style="color: red;">
+                <div *ngIf="last_name.errors?.['required']">Last Name is invalid or required!</div>
+                <div *ngIf="last_name.errors?.['minlength']">Last Name must be at least 3 characters long
+                </div>
+                <div *ngIf="last_name.errors?.['maxlength']">Last Name not more than 25 character long</div>
+                <div *ngIf="last_name.errors?.['pattern']">Last Name cannot start with space and Enter your
+                    Last Name</div>
             </div>
         </div>
         <br>
@@ -35,8 +52,10 @@
                 <option value="0" disabled>Choose Gender</option>
                 <option *ngFor="let genz of service.genders" value="{{genz.id}}">{{genz.gender}}</option>
             </select>
-            <div class="validation-error" *ngIf="gender_id.touched && gender_id.invalid">
-                <div>Required</div>
+            <div class="validation-error" *ngIf="gender_id.touched && gender_id.invalid" style="color: red;">
+                <div *ngIf="gender_id.errors?.['required']">
+                    Role required!
+                </div>
             </div>
         </div>
         <br>
@@ -46,20 +65,28 @@
             <select name="qualification" id="qualification" #qualification_id="ngModel" class="form-control" required
                 [(ngModel)]="service.userEditData.qualification_id">
                 <option value="0" disabled>Choose Qualification</option>
-                <option *ngFor="let qualification of service.qualifications" value="{{qualification.id}}">{{qualification.qualification}}</option>
+                <option *ngFor="let qualification of service.qualifications" value="{{qualification.id}}">
+                    {{qualification.qualification}}</option>
             </select>
-            <div class="validation-error" *ngIf="qualification_id.touched && qualification_id.invalid">
-                <div>Required</div>
+            <div class="validation-error" *ngIf="qualification_id.touched && qualification_id.invalid"
+                style="color: red;">
+                <div *ngIf="qualification_id.errors?.['required']">
+                    Qualification required!
+                </div>
             </div>
         </div>
         <br>
         <!-- email -->
         <div class="form-group">
             <label for="email">Email</label>
-            <input name="email" #email="ngModel" class="form-control"
-                [(ngModel)]="service.userEditData.email">
-            <div class="validation-error" *ngIf="email.touched&&email.invalid">
-                <div>Email required</div>
+            <input name="email" #email="ngModel" class="form-control" [(ngModel)]="service.userEditData.email"
+                placeholder="Enter the email address........" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                required [ngClass]="{'is-invalid':email.touched && email.invalid}" autocomplete="off">
+
+            <!-- validation messages -->
+            <div class="validation-error" *ngIf="email.touched&&email.invalid" style="color: red;">
+                <div *ngIf="email.errors?.['required']">Email is invalid or required!</div>
+                <div *ngIf="email.errors?.['pattern']">In valid Email format</div>
             </div>
         </div>
         <br>
@@ -76,10 +103,17 @@
         <!-- Address -->
         <div class="form-group">
             <label for="address">Address</label>
-            <input name="address" #address="ngModel" class="form-control"
-                [(ngModel)]="service.userEditData.address">
-            <div class="validation-error" *ngIf="address.touched&&address.invalid">
-                <div>Address required</div>
+            <input name="address" #address="ngModel" class="form-control" [(ngModel)]="service.userEditData.address"
+                placeholder="Enter the Address..." minlength="3" maxlength="200" pattern="^[^\s].*" required
+                [ngClass]="{'is-invalid':address.touched && address.invalid}" autocomplete="off">
+
+            <!-- validation -->
+            <div class="validation-error" *ngIf="address.touched&&address.invalid" style="color: red;">
+                <div *ngIf="address.errors?.['required']"> Address is invalid or required!</div>
+                <div *ngIf="address.errors?.['minlength']"> Address must contain atleast 3 character long
+                </div>
+                <div *ngIf="address.errors?.['maxlength']"> Address not more than 100 character long</div>
+                <div *ngIf="address.errors?.['pattern']"> Address not start with space</div>
             </div>
         </div>
         <br>
@@ -87,19 +121,28 @@
         <div class="form-group">
             <label for="contact_number">Contact Number</label>
             <input name="contact_number" #contact_number="ngModel" class="form-control"
-                [(ngModel)]="service.userEditData.contact_number">
-            <div class="validation-error" *ngIf="contact_number.touched&&contact_number.invalid">
-                <div>Phone Number required</div>
+                [(ngModel)]="service.userEditData.contact_number" placeholder="Enter the Contact Number...."
+                minlength="10" maxlength="10" pattern="^[6-9]\d{9}$" required
+                [ngClass]="{'is-invalid':contact_number.touched && contact_number.invalid}" autocomplete="off">
+            <!-- validation -->
+            <div class="validation-error" *ngIf="contact_number.touched && contact_number.invalid" style="color: red;">
+                <div *ngIf="contact_number.errors?.['required']">PhoneNumber is invalid or required! </div>
+                <div *ngIf="contact_number.errors?.['minlength']">PhoneNumber must contain 10 digits</div>
+                <div *ngIf="contact_number.errors?.['maxlength']">PhoneNumber not more than 10 digits</div>
+                <div *ngIf="contact_number.errors?.['pattern']">PhoneNumber starts with 6,7,8 and 9</div>
             </div>
         </div>
         <br>
         <!-- Dob -->
         <div class="form-group">
             <label for="dob">Date of Birth</label>
-            <input type="date" name="dob" #dob="ngModel" class="form-control"
-                [(ngModel)]="service.userEditData.dob">
-            <div class="validation-error" *ngIf="dob.touched&&dob.invalid">
-                <div>Date required</div>
+            <input type="date" name="dob" #dob="ngModel" class="form-control" [(ngModel)]="service.userEditData.dob"
+                required [ngClass]="{'is-invalid':dob.touched && dob.invalid}" autocomplete="off" [min]="minDate"
+                [max]="maxDate">
+            <div class="validation-error" *ngIf="dob.touched&&dob.invalid" style="color: red;">
+                <div *ngIf="dob.errors?.['required']">
+                    Dob is invalid or required!
+                </div>
             </div>
         </div>
         <br>
@@ -107,25 +150,15 @@
         <div class="form-group">
             <label for="dob">Date of Joining</label>
             <input type="date" name="date_of_joining" #date_of_joining="ngModel" class="form-control"
-                [(ngModel)]="service.userEditData.date_of_joining">
-            <div class="validation-error" *ngIf="dob.touched&&dob.invalid">
-                <div>Date required</div>
+                [(ngModel)]="service.userEditData.date_of_joining"
+                [ngClass]="{'is-invalid':date_of_joining.touched && date_of_joining.invalid}" [max]="currentDate">
+
+            <!-- validation -->
+            <div class="validation-error" *ngIf="date_of_joining.touched&&date_of_joining.invalid" style="color: red;">
+                <div *ngIf="date_of_joining.errors?.['required']">Date is invalid or required!</div>
             </div>
         </div>
         <br>
-         <!-- department -->
-        <!-- <div class="form-group">
-            <label>Choose Department</label>
-            <select name="department" id="department" #department_id="ngModel" class="form-control" required
-                [(ngModel)]="service.userEditData.department_id">
-                <option value="0" disabled>Choose Department</option>
-                <option *ngFor="let dept of service.departments" value="{{dept.id}}">{{dept.department_name}}</option>
-            </select>
-            <div class="validation-error" *ngIf="department_id.touched && department_id.invalid">
-                <div>Required</div>
-            </div>
-        </div>
-        <br> -->
         <!-- role -->
         <div class="form-group">
             <label>Choose Role</label>
@@ -134,32 +167,37 @@
                 <option value="0" disabled>Choose Role</option>
                 <option *ngFor="let role of service.roles" value="{{role.id}}">{{role.role_name}}</option>
             </select>
-            <div class="validation-error" *ngIf="role_id.touched && role_id.invalid">
+            <div class="validation-error" *ngIf="role_id.touched && role_id.invalid" style="color: red;">
                 <div>Required</div>
             </div>
         </div>
         <br>
         <!-- specialization -->
-        <div class="form-group" *ngIf = "service.userEditData.role_id == 3">
+        <div class="form-group" *ngIf="service.userEditData.role_id == 3">
             <label>Choose Specialization</label>
             <select name="specialization" id="specialization" #specialization_id="ngModel" class="form-control" required
                 [(ngModel)]="service.userEditData.specialization_id">
                 <option value="0" disabled>Choose Specialization</option>
-                <option *ngFor="let spec of service.specializations" value="{{spec.id}}">{{spec.specialization}}</option>
+                <option *ngFor="let spec of service.specializations" value="{{spec.id}}">{{spec.specialization}}
+                </option>
             </select>
-            <div class="validation-error" *ngIf="specialization_id.touched && specialization_id.invalid">
+            <div class="validation-error" *ngIf="specialization_id.touched && specialization_id.invalid"
+                style="color: red;">
                 <div>Required</div>
             </div>
         </div>
         <br>
+        <!-- Fees -->
+        <div class="form-group" *ngIf="service.userEditData.role_id == 3">
+            <label for="fees">Fees</label>
+            <input name="fees" #fees="ngModel" class="form-control" [(ngModel)]="service.userEditData.fees"
+                placeholder="Fee here...." min=200 max=500 required
+                [ngClass]="{'is-invalid': fees.touched && fees.invalid}" autocomplete="off">
 
-          <!-- Fees -->
-          <div class="form-group" *ngIf = "service.userEditData.role_id == 3">
-            <label for="Fees">Fees</label>
-            <input name="fees" #fees="ngModel" class="form-control"
-                [(ngModel)]="service.userEditData.fees">
-            <div class="validation-error" *ngIf="fees.touched&&fees.invalid">
-                <div>Fee required</div>
+            <div class="validation-error" *ngIf="fees.touched&&fees.invalid" style="color: red;">
+                <div *ngIf="fees.errors?.['required']">
+                    Consultation Fee is invalid or required!
+                </div>
             </div>
         </div>
         <br>
