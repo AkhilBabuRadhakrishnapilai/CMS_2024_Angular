@@ -25,5 +25,6 @@ export class User {
     email: string=''; 
     password: string='';
     is_active:boolean=true;
+    token:string='';
     
 }
