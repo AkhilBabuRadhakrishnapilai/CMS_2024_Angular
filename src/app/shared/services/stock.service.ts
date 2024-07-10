@@ -74,6 +74,9 @@ export class StockService {
       return this.httpClient.delete(environment.apiUrl +"/MiscellaneousItem/"+id)
       
     }
+    getSuppliers(): Observable<any[]> {
+      return this.httpClient.get<any[]>(environment.apiUrl);
+    }
     getAllSuppiler():void{
       this.httpClient.get(environment.apiUrl + "/suppliers")
       .toPromise().then
