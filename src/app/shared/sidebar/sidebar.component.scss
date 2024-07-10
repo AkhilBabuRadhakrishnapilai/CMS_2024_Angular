@@ -1,7 +1,7 @@
 .sidebar {
     width: 250px;
     height: calc(100vh - 60px); /* Subtract navbar height */
-    background-color: black; /* Dark blue background */
+    background-color: #4ff1e3;; /* Dark blue background */
     color: #fff; /* White text */
     position: fixed;
     top: 60px; /* Below the navbar */
@@ -14,7 +14,7 @@
   
   .sidebar-header {
     padding: 20px;
-    background-color: black; /* Slightly darker blue */
+    background-color: #4ff1e3; 
     text-align: center;
   }
   

@@ -67,7 +67,8 @@ onSubmit(): void {
       console.error('Error adding appointment', error);
       // Handle error response
     });
-  } else {
+  } 
+  else {
     console.log('Form is invalid');
   }
 }
@@ -84,44 +85,55 @@ generateToken(form:NgForm){
     
   );
 }
-checkFormValidity(): void {
-  Object.keys(this.appointmentForm.controls).forEach(field => {
-    const control = this.appointmentForm.get(field);
-    if (control && !control.valid) {
-      console.log(`Invalid field: ${field}`);
-      console.log(control.errors);
-    }
-  });
-}
+// checkFormValidity(): void {
+//   Object.keys(this.appointmentForm.controls).forEach(field => {
+//     const control = this.appointmentForm.get(field);
+//     if (control && !control.valid) {
+//       console.log(`Invalid field: ${field}`);
+//       console.log(control.errors);
+//     }
+//   });
+// }
 
 // Function to fetch and set patient data based on OPID
 fetchPatientByOpid(opid: string): void {
   if (opid) {
-    this.receptionistService.getPatientByOpid(opid).subscribe(patient => {
-      if (patient) {
-        this.appointmentForm.patchValue({
-          patient: patient.id
-        });
+    console.log('Fetching patient for OPID:', opid);
+    this.receptionistService.getPatientByOpid(opid).subscribe(
+      (patient: Patientdetails) => { // Change parameter type to Patientdetails
+        console.log('Received patient data:', patient);
+        if (patient) {
+          this.appointmentForm.patchValue({
+            patient: patient.id
+          });
+        } else {
+          console.log('No patient found for OPID:', opid);
+          // Optionally handle case where no patient is found
+        }
+      },
+      error => {
+        console.error('Error fetching patient:', error);
       }
-    });
+    );
   }
 }
+
 //generating bill
-generateBill(): void {
-  const consultationFee = 50; // Example fee
-  const registrationFee = 20; // Example fee
+// generateBill(): void {
+//   const consultationFee = 50; // Example fee
+//   const registrationFee = 20; // Example fee
 
-  this.bill = {
-    patientId: this.appointmentForm.get('patient')?.value,
-    doctor: this.getDoctorNameById(this.appointmentForm.get('doctor')?.value),
-    opidValidity: 'Valid for 1 month', // Example validity
-    consultationFee,
-    registrationFee,
-    total: consultationFee + registrationFee
-  };
+//   this.bill = {
+//     patientId: this.appointmentForm.get('patient')?.value,
+//     doctor: this.getDoctorNameById(this.appointmentForm.get('doctor')?.value),
+//     opidValidity: 'Valid for 1 month', // Example validity
+//     consultationFee,
+//     registrationFee,
+//     total: consultationFee + registrationFee
+//   };
 
-  this.showBill = true;
-}
+//   this.showBill = true;
+// }
 
 getDoctorNameById(doctorId: string): string {
   const doctor = this.receptionistService.doctor.find(doc => doc.user_id.emp_id === doctorId);

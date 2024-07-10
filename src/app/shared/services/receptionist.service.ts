@@ -35,6 +35,10 @@ export class ReceptionistService {
     return this.httpClient.post(environment.apiUrl + "/patient_list", patient_details)
   }
   //getting opid
+  // getPatientByOpid(opid: string): Observable<any> {
+  //   return this.httpClient.get<Patientdetails>(`${environment.apiUrl}/patient_list/${opid}`);
+  //   return this.httpClient.get(environment.apiUrl +"/patient_list/" + opid)
+  // }
   getPatientByOpid(opid: string): Observable<Patientdetails> {
     return this.httpClient.get<Patientdetails>(`${environment.apiUrl}/patient_list/${opid}`);
   }
