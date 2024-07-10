@@ -7,6 +7,9 @@ import { AdminAddComponent } from './admin-add/admin-add.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { FormsModule } from '@angular/forms';
+import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
+import { SharedModule } from '../shared/shared.module';
+import { AdminDashComponent } from './admin-dash/admin-dash.component';
 
 
 @NgModule({
@@ -14,12 +17,15 @@ import { FormsModule } from '@angular/forms';
     AdminComponent,
     AdminAddComponent,
     AdminEditComponent,
-    AdminListComponent
+    AdminListComponent,
+    AdminSidenavComponent,
+    AdminDashComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

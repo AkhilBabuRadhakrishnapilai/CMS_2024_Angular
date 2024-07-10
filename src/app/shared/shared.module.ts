@@ -4,20 +4,20 @@ import { CommonModule } from '@angular/common';
 import { SharedRoutingModule } from './shared-routing.module';
 import { SharedComponent } from './shared.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { CommonHeaderComponent } from './common-header/common-header.component';
+
 
 
 @NgModule({
   declarations: [
     SharedComponent,
     HomeComponent,
-    HeaderComponent,
-    SidenavComponent
+    CommonHeaderComponent
   ],
   imports: [
     CommonModule,
     SharedRoutingModule
-  ]
+  ],
+  exports:[CommonHeaderComponent]
 })
 export class SharedModule { }

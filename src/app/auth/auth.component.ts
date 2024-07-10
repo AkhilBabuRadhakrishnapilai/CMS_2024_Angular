@@ -30,7 +30,7 @@ export class AuthComponent implements OnInit {
     return this.loginForm.controls
   }
 
-  //functionality
+  //functionality - on submit
   loginCredentials(){
     //checking the form is valid
     if(this.loginForm.invalid){
@@ -41,73 +41,73 @@ export class AuthComponent implements OnInit {
     console.log(this.loginForm.value);
     //calling the verify method from service
     this.loginService.loginVerification(this.loginForm.value).subscribe((response:any)=>{
-      console.log(response);
-      console.log(response.role_id);
+      console.log(response,"cred");
+      console.log(response.data.user.role_id);
       if(response==null){
         this.error="invalid credentials"
       }
       else{
-        if(response.role_id ==1){
+        if(response.data.user.role_id =="1"){
           console.log("Admin logged")
-          sessionStorage.setItem('email1',response.email);
-          sessionStorage.setItem('Token',response.token);
-          sessionStorage.setItem('role',response.role_id);
+          sessionStorage.setItem('email1',response.data.user.email);
+          sessionStorage.setItem('Token',response.data.Token);
+          sessionStorage.setItem('role',response.data.user.role_id);
 
-          localStorage.setItem('email1',response.email);
-          localStorage.setItem('Token',response.token);
-          localStorage.setItem('role',response.role_id);
+          localStorage.setItem('email1',response.data.user.email);
+          localStorage.setItem('Token',response.data.Token);
+          localStorage.setItem('role',response.data.user.role_id);
 
-          this.router.navigate(['Admin/dash']);
+          this.router.navigate(['admin/dash']);
         }
-        else if(response.role_id==2){
+        else if(response.data.user.role_id=="2"){
           console.log("Recep logged");
-          sessionStorage.setItem('email1',response.email);
-          sessionStorage.setItem('Token',response.token);
-          sessionStorage.setItem('role',response.role_id);
+          sessionStorage.setItem('email1',response.data.user.email);
+          sessionStorage.setItem('Token',response.data.Token);
+          sessionStorage.setItem('role',response.data.user.role_id);
 
-          localStorage.setItem('email1',response.email);
-          localStorage.setItem('Token',response.token);
-          localStorage.setItem('role',response.role_id);
+          localStorage.setItem('email1',response.data.user.email);
+          localStorage.setItem('Token',response.data.Token);
+          localStorage.setItem('role',response.data.user.role_id);
         }
-        else if(response.role_id==3){
+        else if(response.data.user.role_id=="3"){
           console.log("Doc logged");
-          sessionStorage.setItem('email1',response.email);
-          sessionStorage.setItem('Token',response.token);
-          sessionStorage.setItem('role',response.role_id);
+          sessionStorage.setItem('email1',response.data.user.email);
+          sessionStorage.setItem('Token',response.data.Token);
+          sessionStorage.setItem('role',response.data.user.role_id);
 
-          localStorage.setItem('email1',response.email);
-          localStorage.setItem('Token',response.token);
-          localStorage.setItem('role',response.role_id);
+          localStorage.setItem('email1',response.data.user.email);
+          localStorage.setItem('Token',response.data.Token);
+          localStorage.setItem('role',response.data.user.role_id);
         }
-        else if(response.role_id==4){
+        else if(response.data.user.role_id=="4"){
           console.log("pharama logged");
-          sessionStorage.setItem('email1',response.email);
-          sessionStorage.setItem('Token',response.token);
-          sessionStorage.setItem('role',response.role_id);
+          sessionStorage.setItem('email1',response.data.user.email);
+          sessionStorage.setItem('Token',response.data.Token);
+          sessionStorage.setItem('role',response.data.user.role_id);
 
-          localStorage.setItem('email1',response.email);
-          localStorage.setItem('Token',response.token);
-          localStorage.setItem('role',response.role_id);
+          localStorage.setItem('email1',response.data.user.email);
+          localStorage.setItem('Token',response.data.Token);
+          localStorage.setItem('role',response.data.user.role_id);
         }
-        else if(response.role_id==5){
+        else if(response.data.user.role_id=="5"){
           console.log("labtech logged");
-          sessionStorage.setItem('email1',response.email);
-          sessionStorage.setItem('Token',response.token);
-          sessionStorage.setItem('role',response.role_id);
+          sessionStorage.setItem('email1',response.data.user.email);
+          sessionStorage.setItem('Token',response.data.Token);
+          sessionStorage.setItem('role',response.data.user.role_id);
 
-          localStorage.setItem('email1',response.email);
-          localStorage.setItem('Token',response.token);
-          localStorage.setItem('role',response.role_id);
+          localStorage.setItem('email1',response.data.user.email);
+          localStorage.setItem('Token',response.data.Token);
+          localStorage.setItem('role',response.data.user.role_id);
         }
-        else if(response.role_id==6){
+        else if(response.data.user.role_id=="6"){
           console.log("inventory logged");
-          sessionStorage.setItem('email1',response.email);
-          sessionStorage.setItem('Token',response.token);
-          sessionStorage.setItem('role',response.role_id);
+          sessionStorage.setItem('email1',response.data.user.email);
+          sessionStorage.setItem('Token',response.data.Token);
+          sessionStorage.setItem('role',response.data.user.role_id);
 
-          localStorage.setItem('email1',response.email);
-          localStorage.setItem('Token',response.token);
-          localStorage.setItem('role',response.role_id);
+          localStorage.setItem('email1',response.data.user.email);
+          localStorage.setItem('Token',response.data.Token);
+          localStorage.setItem('role',response.data.user.role_id);
         }
       }
     })

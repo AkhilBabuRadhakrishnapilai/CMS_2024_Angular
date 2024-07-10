@@ -14,12 +14,7 @@ import { NgForm } from '@angular/forms';
   providedIn: 'root'
 })
 export class AdminService {
-  addEmployee(form: NgForm) {
-    throw new Error('Method not implemented.');
-  }
-  insertUser(form: NgForm) {
-    throw new Error('Method not implemented.');
-  }
+  
   user:User[]=[]
   qualifications:Qualification[]=[]
   specializations:Specialization[]=[]

@@ -102,3 +102,7 @@ th,td{
   font-size:medium;
   //border-radius:20px;
 }
+.flex-container{
+  justify-content: space-around;
+  flex-direction: row;
+}

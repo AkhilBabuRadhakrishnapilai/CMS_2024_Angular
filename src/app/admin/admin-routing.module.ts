@@ -9,7 +9,8 @@ const routes: Routes = [
   {path:'',component:AdminDashComponent},
   {path:'list',component:AdminListComponent},
   {path:'add',component:AdminAddComponent},
-  {path:'edit/:id',component:AdminEditComponent}
+  {path:'edit/:id',component:AdminEditComponent},
+  {path:'dash',component:AdminDashComponent}
 ];
 
 @NgModule({

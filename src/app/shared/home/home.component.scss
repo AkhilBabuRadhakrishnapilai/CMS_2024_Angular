@@ -1,0 +1,33 @@
+.row .col-md-2.class1 {
+    border-right: solid 2px silver;
+    height: 700px;
+    margin: 0;
+}
+.row .col-md-6.class2 {
+    border-style: solid 10px black !important;
+    background-color: grey !important;
+    height: 700px;
+    margin: 0;
+}
+.row .col-md-4.class3 {
+    border-style: solid 10px black !important;
+    background-color: rgb(193, 140, 140) !important;
+    height: 700px;
+    margin: 0;
+}
+body {
+    background-color: white;
+    margin: 0; /* Resetting default body margin */
+}
+.container {
+    padding: 0 !important; /* Resetting default container padding */
+    width: 100% !important;
+}
+.row {
+    margin: 0 !important; /* Resetting default row margin */
+}
+header{
+    background-color: black;
+    color: white;
+    
+}
