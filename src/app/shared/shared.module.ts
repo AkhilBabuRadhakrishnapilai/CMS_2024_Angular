@@ -6,6 +6,7 @@ import { SharedComponent } from './shared.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

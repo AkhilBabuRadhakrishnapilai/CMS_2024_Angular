@@ -4,6 +4,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './shared/home/home.component';
 import { SharedComponent } from './shared/shared.component';
+import { PharmacistComponent } from './pharmacist/pharmacist.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'shared/home',pathMatch:'full'},
@@ -21,7 +22,12 @@ const routes: Routes = [
     path:'admin',component:AdminComponent,
     loadChildren:()=>import('./admin/admin.module')
     .then(x=>x.AdminModule)
-  }
+  },
+  {
+    path:'pharmacist',component:PharmacistComponent,
+    loadChildren:()=>import('./pharmacist/pharmacist.module')
+    .then(x=>x.PharmacistModule)
+  },
 ];
 
 @NgModule({
