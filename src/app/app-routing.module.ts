@@ -4,6 +4,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './shared/home/home.component';
 import { SharedComponent } from './shared/shared.component';
+import { ReceptionistComponent } from './receptionist/receptionist.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'shared/home',pathMatch:'full'},
@@ -21,6 +22,10 @@ const routes: Routes = [
     path:'admin',component:AdminComponent,
     loadChildren:()=>import('./admin/admin.module')
     .then(x=>x.AdminModule)
+  },
+  {path:'receptionist',component:ReceptionistComponent,
+    loadChildren:() =>import('./receptionist/receptionist.module')
+    .then(x=>x.ReceptionistModule)
   }
 ];
 
