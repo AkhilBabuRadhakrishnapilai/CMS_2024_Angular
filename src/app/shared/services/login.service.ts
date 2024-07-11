@@ -22,6 +22,6 @@ export class LoginService {
     localStorage.removeItem('email');
     localStorage.removeItem('Token');
     localStorage.removeItem('role');
-    this.router.navigate(['auth/login'])
+    this.router.navigate(['shared/home'])
   }
 }
