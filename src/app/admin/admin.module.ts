@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminSidenavComponent } from './admin-sidenav/admin-sidenav.component';
 import { SharedModule } from '../shared/shared.module';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
+import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AdminDashComponent } from './admin-dash/admin-dash.component';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    Ng2SearchPipeModule
   ]
 })
 export class AdminModule { }

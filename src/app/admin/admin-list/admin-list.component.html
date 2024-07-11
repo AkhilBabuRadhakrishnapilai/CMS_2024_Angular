@@ -37,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let emp of service.user">
+                        <tr *ngFor="let emp of service.user | filter:searchTerm">
                             <!-- <td>{{emp.emp_id}}</td> -->
                             <td>{{emp.first_name}} {{emp.last_name}}</td>
                             <!-- <td>{{emp.last_name}}</td> -->
