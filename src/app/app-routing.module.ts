@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { StockComponent } from './stock/stock.component';
-import { SharedComponent } from './shared/shared.component';
+
 import { ReportsComponent } from './reports/reports.component';
 
 import { AuthComponent } from './auth/auth.component';
