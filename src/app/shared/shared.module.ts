@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { SharedRoutingModule } from './shared-routing.module';
 import { SharedComponent } from './shared.component';
 import { HomeComponent } from './home/home.component';
@@ -10,7 +9,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CommonHeaderComponent } from './common-header/common-header.component';
 import { HomelabComponent } from './homelab/homelab.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { DoctordashboardComponent } from './doctordashboard/doctordashboard.component';
@@ -32,10 +30,9 @@ import { DoctordashboardComponent } from './doctordashboard/doctordashboard.comp
     CommonModule,
     SharedRoutingModule,
     NgxPaginationModule,
-    FormsModule 
+    FormsModule,
   
   ],
-  exports:[NavbarComponent,SidebarComponent,FooterComponent,CommonHeaderComponent],
-  exports:[NavbarComponent]
+  exports:[NavbarComponent,SidebarComponent,FooterComponent,CommonHeaderComponent]
 })
 export class SharedModule { }

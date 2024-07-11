@@ -9,7 +9,6 @@ import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './shared/home/home.component';
 import { ReceptionistComponent } from './receptionist/receptionist.component';
 import { DoctorComponent } from './doctor/doctor.component';
-import { SharedComponent } from './shared/shared.component';
 import { DiagnosisAddComponent } from './doctor/diagnosis-add/diagnosis-add.component';
 
 const routes: Routes = [
