@@ -9,6 +9,7 @@ import { ReceptionistDashboardComponent } from './receptionist-dashboard/recepti
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { CommonHeaderComponent } from './common-header/common-header.component';
 
 
 @NgModule({
@@ -19,12 +20,13 @@ import { FooterComponent } from './footer/footer.component';
     ReceptionistDashboardComponent,
     NavbarComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    CommonHeaderComponent
   ],
   imports: [
     CommonModule,
     SharedRoutingModule
   ],
-  exports:[NavbarComponent,SidebarComponent,FooterComponent]
+  exports:[NavbarComponent,SidebarComponent,FooterComponent,CommonHeaderComponent]
 })
 export class SharedModule { }
