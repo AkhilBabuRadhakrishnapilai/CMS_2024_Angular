@@ -63,6 +63,11 @@ export class ReceptionistService {
     console.log(book_appointment);
     return this.httpClient.post(environment.apiUrl + "/appointment_list", book_appointment)
   }
+  // editing appointments
+  updateAppointment(book_appointment:Bookappointment):Observable<any>{
+    console.log(book_appointment);
+    return this.httpClient.put(environment.apiUrl + "/appointment_info/" + book_appointment.id, book_appointment)
+  }
   //getting all specializations
   listSpecialization(): void {
     this.httpClient.get<Specialization[]>

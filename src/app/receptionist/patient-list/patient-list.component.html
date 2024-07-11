@@ -46,7 +46,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let patient of receptionistService.patient_details">
+        <tr *ngFor="let patient of receptionistService.patient_details | filter: term">
             <td>{{ patient.id }}</td>
             <td>{{ patient.opid }}</td>
             <td>{{ patient.name }}</td>

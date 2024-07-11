@@ -1,6 +1,6 @@
 <div class="container mt-5 p-4 bg-light rounded shadow">
   <h2 class="text-center text-primary mb-4">Add Appointment</h2>
-  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="appointmentForm"  (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="opid">OP Id</label>
       <input type="text" id="opid" formControlName="opid" class="form-control" placeholder="Enter OP Id"
@@ -54,7 +54,7 @@
     <button type="submit" class="btn btn-primary btn-block mt-4">Add Appointment</button>
   </form>
 
-  <div *ngIf="showBill" class="mt-5 p-4 bg-white rounded shadow">
+  <!-- <div *ngIf="showBill" class="mt-5 p-4 bg-white rounded shadow">
     <h3 class="text-center text-success">Appointment Bill</h3>
     <p><strong>Patient ID:</strong> {{bill.patientId}}</p>
     <p><strong>Consulted Doctor:</strong> {{bill.doctor}}</p>
@@ -62,5 +62,6 @@
     <p><strong>Consultation Fee:</strong> ${{bill.consultationFee}}</p>
     <p><strong>Registration Fee:</strong> ${{bill.registrationFee}}</p>
     <p><strong>Total:</strong> ${{bill.total}}</p>
-  </div>
+  </div> -->
 </div>
+<router-outlet></router-outlet>

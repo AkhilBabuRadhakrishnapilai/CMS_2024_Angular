@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
     RouterModule,
     SharedModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule
    
   ],
   providers: [],

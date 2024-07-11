@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'patient_edit/:id',component:PatientEditComponent},
   {path:'appointment_list',component:AppointmentListComponent},
   {path:'appointment_add',component:AppointmentAddComponent},
-  {path:'appointment_edit',component:AppointmentEditComponent}
+  {path:'appointment_edit/:id',component:AppointmentEditComponent}
 ];
 
 @NgModule({

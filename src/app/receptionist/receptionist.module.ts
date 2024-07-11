@@ -12,6 +12,7 @@ import { AppointmentAddComponent } from './appointment-add/appointment-add.compo
 import { AppointmentListComponent } from './appointment-list/appointment-list.component';
 import { AppointmentEditComponent } from './appointment-edit/appointment-edit.component';
 import { SharedModule } from '../shared/shared.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -33,7 +34,8 @@ import { SharedModule } from '../shared/shared.module';
     HttpClientModule,
     FormsModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
   ]
 })
 export class ReceptionistModule { }

@@ -45,8 +45,8 @@
             <td>{{ appoint?.time_slot }}</td>
             <td>{{ appoint?.token }}</td>
             <td>
-                <button class="btn btn-sm btn-outline-danger">Cancel</button>
-                <button class="btn btn-info" style="margin-left: 10px;">Rechedule</button>
+                <!-- <button class="btn btn-sm btn-outline-danger">Cancel</button> -->
+                <button class="btn btn-info" style="margin-left: 10px;" (click)="updateAppoinment(appoint)">Rechedule</button>
             </td>
         </tr>
     </tbody>
