@@ -17,10 +17,7 @@ const routes: Routes = [
   { path:'reports',component:ReportsComponent,loadChildren : ()=>import('./reports/reports.module')
     .then(x=>x.ReportsModule)
   },
- 
-  {path:'shared',component:SharedComponent,loadChildren : ()=>import('./shared/shared.module')
-    .then(x=>x.SharedModule)
-  },
+
   {path:'',redirectTo:'shared/home',pathMatch:'full'},
   {
     path:'shared',component:SharedComponent,
