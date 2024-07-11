@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Edit Miscellaneous Item</title>
+    <style>
+        .validation-error {
+            color: red;
+            font-size: 0.875em;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <a [routerLink]="['/stock/miscellaneousitemlist']" role="button" class="btn btn-outline-secondary custom-margin custom-btn">
+        <i class="fa fa-right-arrow fa-lg"></i>
+       back
+    </a>
+<div class="container mt-4">
+    <h3 class="mb-3">Add New Miscellaneous Item</h3>
+    <hr>
+    <form name="formMedicine" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <!-- item id -->
+        <div class="form-group">
+            <input type="hidden" readonly name="id" class="form-control" [(ngModel)]="stockService.formMiscellaneousitemData.id">
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+            <label for="name" class="form-label">Name:</label>
+            <input name="name" id="name" class="form-control" #name="ngModel" [(ngModel)]="stockService.formMiscellaneousitemData.name" required>
+            <div class="validation-error" *ngIf="name.touched && name.invalid">
+                <div>name is required</div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label for="description" class="form-label">Description:</label>
+            <input name="description" id="description" class="form-control" #description="ngModel" [(ngModel)]="stockService.formMiscellaneousitemData.description" required>
+            <div class="validation-error" *ngIf="description.touched && description.invalid">
+                <div>description is required</div>
+            </div>
+        </div>
+
+        <!-- Supplier -->
+        <div class="form-group">
+            <label for="supplier" class="form-label">Choose Supplier:</label>
+            <select name="supplier" id="supplier" class="form-select" #supplier="ngModel" [(ngModel)]="stockService.formMiscellaneousitemData.suppliee" required>
+                <option value="" disabled>Choose supplier</option>
+                <option *ngFor="let supp of stockService.suppiler" [value]="supp.id">{{ supp.name }}</option>
+            </select>
+            <div class="validation-error" *ngIf="supplier.touched && supplier.invalid">
+                <div>supplier IS REQUIRED</div>
+            </div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="form-group">
+            <label for="quantity" class="form-label">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" class="form-control" #quantity="ngModel" [(ngModel)]="stockService.formMiscellaneousitemData.quantity" required>
+            <div class="validation-error" *ngIf="quantity.touched && quantity.invalid">
+                <div>quantity is required</div>
+            </div>
+        </div>
+
+        <!-- Reorder Level -->
+        <div class="form-group">
+            <label for="reorder_level" class="form-label">Reorder Level:</label>
+            <input type="number" name="reorder_level" id="reorder_level" class="form-control" #reorder_level="ngModel" [(ngModel)]="stockService.formMiscellaneousitemData.reorder_level" required>
+            <div class="validation-error" *ngIf="reorder_level.touched && reorder_level.invalid">
+                <div>reorder level is required</div>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">
+                Submit
+            </button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybDoOJ4yA1R8z1M3/iqm/tQT8hiH9pOUUMF6pW6FQ0KWKQ2D6" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-Qb06XrO/ytg5zU5Vpo0hbFWxZ2gp4UJ1zB6I8o2ZkLl4zC5AGyyHTqVtQ3kp1LlW" crossorigin="anonymous"></script>
+</body>
+</html>
