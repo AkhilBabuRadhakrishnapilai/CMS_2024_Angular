@@ -10,6 +10,7 @@ import { HomeComponent } from './shared/home/home.component';
 import { ReceptionistComponent } from './receptionist/receptionist.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { DiagnosisAddComponent } from './doctor/diagnosis-add/diagnosis-add.component';
+import { PharmacistComponent } from './pharmacist/pharmacist.component';
 
 const routes: Routes = [
   { path:'stock',component:StockComponent,loadChildren : ()=>import('./stock/stock.module')
@@ -37,6 +38,12 @@ const routes: Routes = [
     path:'admin',component:AdminComponent,
     loadChildren:()=>import('./admin/admin.module')
     .then(x=>x.AdminModule)
+  },
+  {
+    path:'pharmacist',component:PharmacistComponent,
+    loadChildren:()=>import('./pharmacist/pharmacist.module')
+    .then(x=>x.PharmacistModule)
+  },
   },
   {path:'receptionist',component:ReceptionistComponent,
     loadChildren:() =>import('./receptionist/receptionist.module')

@@ -12,6 +12,7 @@ import { HomelabComponent } from './homelab/homelab.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { DoctordashboardComponent } from './doctordashboard/doctordashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DoctordashboardComponent } from './doctordashboard/doctordashboard.comp
   imports: [
     CommonModule,
     SharedRoutingModule,
+    HttpClientModule,
     NgxPaginationModule,
     FormsModule,
   
