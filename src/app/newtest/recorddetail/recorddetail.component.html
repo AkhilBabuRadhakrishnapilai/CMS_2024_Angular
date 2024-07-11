@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Google Fonts - Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+      background-color: #f8f9fa; /* Light background */
+      color: #495057; /* Dark text */
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+    }
+    .table th, .table td {
+      vertical-align: middle; /* Align content vertically */
+    }
+    .btn-secondary.btn-back {
+      background-color: #6c757d; /* Dark gray background color */
+      color: #fff; /* Text color */
+      border-color: #6c757d; /* Border color */
+      width: 120px; /* Adjust width */
+      height: 40px; /* Adjust height */
+      float: right; /* Align to the right */
+      margin-left: 10px; /* Optional: Add margin for spacing */
+    }
+    .btn-secondary.btn-back:hover {
+      background-color: #5a6268; /* Darker gray on hover */
+      border-color: #5a6268; /* Darker border on hover */
+    }
+    .btn-secondary.btn-back span {
+      display: block;
+      margin-bottom: 5px; /* Adjust the space between icon and text */
+    }
+
+    /* Additional Typography Styles */
+    h2 {
+      font-size: 2.5rem; /* Larger heading size */
+      font-weight: 700; /* Bold */
+      text-align: center; /* Center align */
+      margin-bottom: 30px; /* Space below heading */
+    }
+    .card-title {
+      font-size: 1.25rem; /* Medium card title size */
+      font-weight: 500; /* Semi-bold */
+      color: #007bff; /* Blue color */
+      margin-bottom: 15px; /* Space below title */
+    }
+    .list-group-item {
+      font-size: 1rem; /* Regular font size */
+    }
+    .btn-secondary {
+      font-size: 1rem; /* Button font size */
+      font-weight: 500; /* Semi-bold */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="my-4">Patient Details</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Basic Information</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>ID:</strong> {{ recorddet.formEmployeeData1.test.labtests.appointment.patient.opid }}</li>
+              <li class="list-group-item"><strong>Name:</strong> {{ recorddet.formEmployeeData1.test.labtests.appointment.patient.name }}</li>
+              <li class="list-group-item"><strong>Date of Birth:</strong> {{ recorddet.formEmployeeData1.test.labtests.appointment.patient.dob }}</li>
+              <li class="list-group-item"><strong>Blood Group:</strong> {{ recorddet.formEmployeeData1.test.labtests.appointment.patient.blood_group }}</li>
+              <li class="list-group-item"><strong>Age:</strong> {{ recorddet.formEmployeeData1.test.labtests.appointment.patient.age }}</li>
+              <li class="list-group-item"><strong>Doctor:</strong> {{ recorddet.formEmployeeData1.test.labtests.appointment.doctor.user_id.first_name }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Lab Tests</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let labTest of recorddet.formEmployeeData1.test.lab_tests_details">
+                <strong>{{ labTest.test_name }}:</strong> {{ labTest.low_value }} - {{ labTest.high_value }}
+              </li>
+            </ul>
+            <p class="mt-3"><strong>Tested Value:</strong> {{ recorddet.formEmployeeData1.tested_value }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <a [routerLink]="['/newtest/record']" role="button" class="btn btn-secondary">
+        <i class="fa fa-arrow-left mr-2"></i> BACK
+      </a>
+    </div>
+  </div>
+</body>
+</html>

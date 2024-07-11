@@ -9,12 +9,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CommonHeaderComponent } from './common-header/common-header.component';
+import { HomelabComponent } from './homelab/homelab.component';
 
 
 @NgModule({
   declarations: [
     SharedComponent,
     HomeComponent,
+    HomelabComponent,
     ReceptionistDashboardComponent,
     NavbarComponent,
     SidebarComponent,

@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>Patient List</h2>
+  <div class="input-group mb-3">
+    <input type="search" class="form-control rounded-pill border-0 py-3" placeholder="Search tests..." [(ngModel)]="term" aria-label="Search tests" aria-describedby="search-addon">
+    <div class="input-group-append">
+      <button class="btn btn-primary rounded-pill py-3 px-4" type="button" id="search-addon">
+        <i ></i> Search
+      </button>
+    </div>
+  </div>
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Blood Group</th>
+        <th>Age</th>
+        <th>Doctor</th>
+        <th>Lab Tests</th>
+     
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let pat of patientService.testprescribe | filter :term">
+        <tr *ngIf="!pat.is_active">
+          <td>{{ pat.id }}</td>
+          <td>{{ pat.labtests.appointment.patient.name}}</td>
+          <td>{{ pat.labtests.appointment.patient.dob }}</td>
+          <td>{{ pat.labtests.appointment.patient.blood_group }}</td>
+          <td>{{ pat.labtests.appointment.patient.age }}</td>
+          <td>{{ pat.labtests.appointment.doctor.user_id.first_name }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let labTest of pat.lab_tests_details">
+                {{ labTest.test_name }}
+              </li>
+            </ul>
+          </td>
+          
+          <td>
+            <button class="btn btn-primary" (click)="dotest(pat)" >LIVE TEST</button>
+          </td> 
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <a [routerLink]="['/shared/homelab']" role="button" class="btn btn-secondary">
+    <span>
+        <i class="fa fa-arrow-left fa-lg"></i> <!-- Changed icon to a back arrow -->
+    </span>
+    <br>
+    BACK
+  </a>
+</div>
+

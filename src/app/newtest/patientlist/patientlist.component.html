@@ -1,0 +1,67 @@
+<div class="container">
+  <h2>TODAY'S PATIENTS...</h2>
+
+  <!-- Search Input -->
+  <div class="input-group mb-3">
+    <input type="search" class="form-control rounded-pill border-0 py-3" placeholder="Search tests..." [(ngModel)]="term" aria-label="Search tests" aria-describedby="search-addon">
+    <div class="input-group-append">
+      <button class="btn btn-primary rounded-pill py-2 px-4" type="button" id="search-addon">
+        <i class="fa fa-search"></i> Search
+      </button>
+    </div>
+  </div>
+
+  <!-- Patient List Table -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Blood Group</th>
+        <th>Age</th>
+        <th>Doctor</th>
+        <th>Lab Tests</th>
+        <th>Rate</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pat of patientService.testprescribe | filter:term">
+        <td>{{ pat.id }}</td>
+        <td>{{ pat.labtests.appointment.patient.name }}</td>
+        <td>{{ pat.labtests.appointment.patient.dob }}</td>
+        <td>{{ pat.labtests.appointment.patient.blood_group }}</td>
+        <td>{{ pat.labtests.appointment.patient.age }}</td>
+        <td>{{ pat.labtests.appointment.doctor.user_id.first_name }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let labTest of pat.lab_tests_details">
+              {{ labTest.test_name }}
+            </li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li *ngFor="let labTest of pat.lab_tests_details">
+              Rate: {{ labTest.rate }}
+            </li>
+          </ul>
+        </td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="updateEmployee(pat)">Generate Bill</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Back Button -->
+  <a [routerLink]="['/shared/homelab']" role="button" class="btn btn-secondary mt-3">
+    <span>
+      <i class="fa fa-arrow-left"></i> <!-- Back arrow icon -->
+    </span>
+    <br>
+    BACK
+  </a>
+
+</div>
