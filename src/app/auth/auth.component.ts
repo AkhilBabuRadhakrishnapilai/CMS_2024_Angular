@@ -81,6 +81,8 @@ export class AuthComponent implements OnInit {
           localStorage.setItem('email1',response.data.user.email);
           localStorage.setItem('Token',response.data.Token);
           localStorage.setItem('role',response.data.user.role_id);
+
+          this.router.navigate([''])
         }
         else if(response.data.user.role_id=="4"){
           console.log("pharama logged");
@@ -91,6 +93,8 @@ export class AuthComponent implements OnInit {
           localStorage.setItem('email1',response.data.user.email);
           localStorage.setItem('Token',response.data.Token);
           localStorage.setItem('role',response.data.user.role_id);
+
+          this.router.navigate([''])
         }
         else if(response.data.user.role_id=="5"){
           console.log("labtech logged");
@@ -101,6 +105,8 @@ export class AuthComponent implements OnInit {
           localStorage.setItem('email1',response.data.user.email);
           localStorage.setItem('Token',response.data.Token);
           localStorage.setItem('role',response.data.user.role_id);
+
+          this.router.navigate(['shared/homelab'])
         }
         else if(response.data.user.role_id=="6"){
           console.log("inventory logged");
@@ -111,6 +117,8 @@ export class AuthComponent implements OnInit {
           localStorage.setItem('email1',response.data.user.email);
           localStorage.setItem('Token',response.data.Token);
           localStorage.setItem('role',response.data.user.role_id);
+
+          this.router.navigate(['stock/stockdashboard'])
         }
       }
     })
