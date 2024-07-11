@@ -69,6 +69,8 @@ export class AuthComponent implements OnInit {
           localStorage.setItem('email1',response.data.user.email);
           localStorage.setItem('Token',response.data.Token);
           localStorage.setItem('role',response.data.user.role_id);
+
+          this.router.navigate(['receptionist/dash']);
         }
         else if(response.data.user.role_id=="3"){
           console.log("Doc logged");
