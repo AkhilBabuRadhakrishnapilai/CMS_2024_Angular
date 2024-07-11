@@ -10,6 +10,10 @@
             color: red;
             font-size: 0.875em;
         }
+        /* body, .container {
+            overflow-y: auto; 
+            height: 100vh; 
+        } */
     </style>
 </head>
 <body>
@@ -18,7 +22,7 @@
        back
     </a>
 <div class="container mt-4">
-    <h3 class="mb-3">Edit Medicine</h3>
+    <h3 class="mb-3">Add Medicine</h3>
     <hr>
     <form name="formMedicine" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
         <input type="hidden" readonly name="id" [(ngModel)]="stockService.formMedicineData.id">

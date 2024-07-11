@@ -1,0 +1,36 @@
+/* src/app/dashboard/dashboard.component.scss */
+.custom-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .custom-btn i {
+    margin-bottom: 10px;
+  }
+  
+//   .custom-card {
+//     // margin-bottom: 20px;
+//   }
+  
+  .custom-btn1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    width: auto;
+  }
+  
+  /* Ensuring the cards are square-shaped */
+  .square-card {
+    height: 200px;  /* Set a fixed height */
+  }
+  
+  .square-card .card-body {
+    height: 100%;
+  }
+  

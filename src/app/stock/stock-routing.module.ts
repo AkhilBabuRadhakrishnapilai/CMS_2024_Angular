@@ -15,8 +15,10 @@ import { SupplierAddComponent } from './supplier/supplier-add/supplier-add.compo
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { OrderEditComponent } from './order/order-edit/order-edit.component';
 import { OrderAddComponent } from './order/order-add/order-add.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   {path:'medicinelist',component:MedicineListComponent},
   {path:'medicineedit/:id',component:MedicineEditComponent},
   {path:'medicineadd',component:MedicineAddComponent},
@@ -32,6 +34,7 @@ const routes: Routes = [
   {path:'orderlist',component:OrderListComponent},
   {path:'orderedit/:id',component:OrderEditComponent},
   {path:'orderadd',component:OrderAddComponent},
+  {path:'stockdashboard',component:DashboardComponent},
 ];
 
 @NgModule({

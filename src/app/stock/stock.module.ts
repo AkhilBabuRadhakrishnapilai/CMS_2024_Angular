@@ -20,6 +20,7 @@ import { SupplierEditComponent } from './supplier/supplier-edit/supplier-edit.co
 import { SupplierListComponent } from './supplier/supplier-list/supplier-list.component';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     OrderListComponent,
     SupplierAddComponent,
     SupplierEditComponent,
-    SupplierListComponent
+    SupplierListComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

@@ -34,8 +34,20 @@ export class ReportsListComponent implements OnInit {
   ngOnInit(): void {
     this.reportsservice.bindListReports();
     this.loadSuppliers();
+    // this.loadReports();
   }
-
+  // loadReports(): void {
+  //   this.reportsservice.bindListReports().subscribe(
+  //     reports => {
+  //       this.reportsservice.reports = reports;  // Update reports in service
+  //       console.log('Reports loaded:', reports);
+  //       // Optional: Perform any additional logic after loading reports
+  //     },
+  //     error => {
+  //       console.error('Error loading reports:', error);
+  //     }
+  //   );
+  // }
   loadSuppliers(): void {
     this.stockService.getSuppliers().subscribe((data: any[]) => {
       data.forEach(supplier => {
@@ -61,6 +73,7 @@ export class ReportsListComponent implements OnInit {
   getSupplierName(supplierId: number): string {
     return this.suppliers[supplierId] || 'Unknown Supplier';
   }
+  
 
   printReport(): void {
     if (this.selectedReport) {
@@ -78,11 +91,11 @@ export class ReportsListComponent implements OnInit {
 
   viewSummary(): void {
     const counts = {
-      suppliers: this.reportsservice.getCount('suppliers'),
-      orders: this.reportsservice.getCount('orders'),
-      medicines: this.reportsservice.getCount('medicines'),
-      equipment: this.reportsservice.getCount('equipment'),
-      miscellaneous: this.reportsservice.getCount('miscellaneous')
+      suppliers: this.reportsservice.getCount('suppliers') || 2,
+      orders: this.reportsservice.getCount('orders') || 1,
+      medicines: this.reportsservice.getCount('medicines') || 3,
+      equipment: this.reportsservice.getCount('equipment') || 2,
+      miscellaneous: this.reportsservice.getCount('miscellaneous') || 2
     };
 
     console.log('Summary counts:', counts);
