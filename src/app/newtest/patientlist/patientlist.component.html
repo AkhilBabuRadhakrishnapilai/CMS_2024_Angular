@@ -1,3 +1,21 @@
+<app-common-header></app-common-header>
+<div class="container">
+        <!-- Search bar -->
+        <div class="input-group mb-3">
+            <input type="search" class="form-control py-2 border-right-0 rounded-0" placeholder="Search" [(ngModel)]="term" aria-label="Search" aria-describedby="search-addon">
+            <div class="input-group-append">
+                <span class="input-group-text bg-transparent border-left-0 rounded-0" id="search-addon">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div>
+        </div>
+        
+        <!-- Add New Test button -->
+        <a [routerLink]="['/newtest/addlist']" role="button" class="btn btn-outline-secondary custom-margin">
+            <span><i class="fa fa-plus fa-lg"></i></span>
+            <br>
+            ADD NEW TEST
+        </a>
 <div class="container">
   <h2>TODAY'S PATIENTS...</h2>
 

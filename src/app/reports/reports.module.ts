@@ -4,6 +4,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReportsRoutingModule } from './reports-routing.module';
 import { ReportsComponent } from './reports.component';
 import { ReportsListComponent } from './reports-list/reports-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -17,6 +18,7 @@ import { ReportsListComponent } from './reports-list/reports-list.component';
     CommonModule,
     ReportsRoutingModule,
     Ng2SearchPipeModule,
+    SharedModule
     
   ]
 })

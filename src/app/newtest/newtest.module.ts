@@ -14,6 +14,7 @@ import { DotestComponent } from './dotest/dotest.component';
 import { LivetestsComponent } from './livetests/livetests.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     NewtestRoutingModule,
     Ng2SearchPipeModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class NewtestModule { }

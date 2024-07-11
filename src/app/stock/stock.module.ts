@@ -21,6 +21,7 @@ import { SupplierListComponent } from './supplier/supplier-list/supplier-list.co
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CommonModule,
     StockRoutingModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    SharedModule
   ]
 })
 export class StockModule { }

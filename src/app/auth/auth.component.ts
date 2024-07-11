@@ -82,7 +82,7 @@ export class AuthComponent implements OnInit {
           localStorage.setItem('Token',response.data.Token);
           localStorage.setItem('role',response.data.user.role_id);
 
-          this.router.navigate([''])
+          this.router.navigate(['shared/doctordashboard'])
         }
         else if(response.data.user.role_id=="4"){
           console.log("pharama logged");
