@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h3>Add Lab Test</h3>
+    <hr>
+    <!-- Your form or content for adding a lab test goes here -->
+
+    <form name="formEmployee" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        
+
+        <div class="form-group">
+            <label>Appointment ID:</label>
+            <input name="labtests" #labtests="ngModel" [(ngModel)]="doctorService.formLabData.labtests.id" required class="form-control">
+            <div class="validation-error" *ngIf="labtests.touched && labtests.invalid">
+                <div>labtests is required</div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label>Lab Tests:</label>
+            <select name="lab_tests" #lab_tests="ngModel" [(ngModel)]="doctorService.formLabData.lab_tests" multiple required class="form-control">
+              <option *ngFor="let labTest of availableLabTests" [value]="labTest.id">{{ labTest.test_name }}</option>
+            </select>
+            <div class="validation-error" *ngIf="lab_tests.touched && lab_tests.invalid">
+              <div>Lab tests are required</div>
+            </div>
+          </div>
+          <br>
+        <div class="form-group">
+            <label>Date of Prescribition:</label>
+            <input type="date" name="date_of_prescribition" #date_of_prescribition="ngModel" [(ngModel)]="doctorService.formLabData.date_of_prescribition" required class="form-control">
+            <div class="validation-error" *ngIf="date_of_prescribition.touched && date_of_prescribition.invalid">
+                <div>Next visit is required</div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <button type="submit" [disabled]="!form.valid" class="btn btn-lg btn-primary form-control">Submit</button>
+        </div>
+        
+    </form>
+
+
+
+  </div>
+
+
+
+
+
+
+  <router-outlet></router-outlet>
