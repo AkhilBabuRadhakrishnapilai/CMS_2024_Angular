@@ -13,26 +13,28 @@ import { DiagnosisAddComponent } from './doctor/diagnosis-add/diagnosis-add.comp
 import { PharmacistComponent } from './pharmacist/pharmacist.component';
 
 const routes: Routes = [
-  { path:'stock',component:StockComponent,loadChildren : ()=>import('./stock/stock.module')
-    .then(x=>x.StockModule)
-  },
-  { path:'reports',component:ReportsComponent,loadChildren : ()=>import('./reports/reports.module')
-    .then(x=>x.ReportsModule)
-  },
-
   {path:'',redirectTo:'shared/home',pathMatch:'full'},
-  {
-    path:'shared',component:SharedComponent,
-    loadChildren:()=>import('./shared/shared.module')
-    .then(x=>x.SharedModule)
-  },
   {
     path:'login',component:AuthComponent,
     loadChildren:()=>import('./auth/auth.module')
     .then(x=>x.AuthModule)
   },
 
-  {path:'', redirectTo:'shared/doctordashboard',pathMatch:'full'},
+  { path:'stock',component:StockComponent,loadChildren : ()=>import('./stock/stock.module')
+    .then(x=>x.StockModule)
+  },
+  { path:'reports',component:ReportsComponent,loadChildren : ()=>import('./reports/reports.module')
+    .then(x=>x.ReportsModule)
+  },
+  
+  {
+    path:'shared',component:SharedComponent,
+    loadChildren:()=>import('./shared/shared.module')
+    .then(x=>x.SharedModule)
+  },
+ 
+
+  // {path:'', redirectTo:'shared/doctordashboard',pathMatch:'full'},
 
   {
     path:'admin',component:AdminComponent,
@@ -44,7 +46,7 @@ const routes: Routes = [
     loadChildren:()=>import('./pharmacist/pharmacist.module')
     .then(x=>x.PharmacistModule)
   },
-  },
+
   {path:'receptionist',component:ReceptionistComponent,
     loadChildren:() =>import('./receptionist/receptionist.module')
     .then(x=>x.ReceptionistModule)
@@ -52,9 +54,9 @@ const routes: Routes = [
   {path:'newtest',component:NewtestComponent,loadChildren :()=>import('./newtest/newtest.module')
     .then(x=>x.NewtestModule)
   },
-  { path:'shared',component:SharedComponent,loadChildren : ()=>import('./shared/shared.module')
-    .then(x=>x.SharedModule)
-  },
+  // { path:'shared',component:SharedComponent,loadChildren : ()=>import('./shared/shared.module')
+  //   .then(x=>x.SharedModule)
+  // },
 
   {
     path: 'doctor', component:DoctorComponent,
@@ -64,11 +66,11 @@ const routes: Routes = [
 
   { path: 'doctor/diagnosisadd/:id', component: DiagnosisAddComponent },
 
-  {
-    path: 'shared', component:SharedComponent,
-    loadChildren:()=>import('./shared/shared.module')
-    .then(x=>x.SharedModule)
-  },
+  // {
+  //   path: 'shared', component:SharedComponent,
+  //   loadChildren:()=>import('./shared/shared.module')
+  //   .then(x=>x.SharedModule)
+  // },
 
 ];
 

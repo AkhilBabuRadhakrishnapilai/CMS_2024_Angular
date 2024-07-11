@@ -8,6 +8,7 @@ import { PharmacistViewComponent } from './pharmacist-view/pharmacist-view.compo
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PharmacistListComponent } from './pharmacist-list/pharmacist-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PharmacistListComponent } from './pharmacist-list/pharmacist-list.compo
     CommonModule,
     PharmacistRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ]
 })
 export class PharmacistModule { }
