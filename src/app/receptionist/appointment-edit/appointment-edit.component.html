@@ -1,0 +1,65 @@
+<div class="container mt-5 p-4 bg-light rounded shadow">
+    <h2 class="text-center text-primary mb-4">Add Appointment</h2>
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="opid">OP Id</label>
+        <input type="text" id="opid" formControlName="opid" class="form-control" placeholder="Enter OP Id">
+        <!-- Optional: Show error message if OP Id is invalid and touched -->
+        <div *ngIf="appointmentForm.get('opid')?.invalid && appointmentForm.get('opid')?.touched" class="text-danger">
+          OP Id is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="patient">Patient</label>
+        <input type="number" id="patient" formControlName="patient" class="form-control" placeholder="Patient Id"
+          readonly>
+        <!-- Optional: Show error message if OP Id is invalid and touched -->
+        <div *ngIf="appointmentForm.get('opid')?.invalid && appointmentForm.get('opid')?.touched" class="text-danger">
+          OP Id is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="specialization">Specialization</label>
+        <select id="specialization" formControlName="specialization" class="form-control">
+          <option *ngFor="let spec of receptionistService.specialization" [value]="spec.id">{{spec.specialization}}
+          </option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="doctor">Doctor</label>
+        <select id="doctor" formControlName="doctor" class="form-control">
+          <option *ngFor="let doc of receptionistService.doctor" [value]="doc.doc_id">{{doc.user_id.first_name}}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="appointment_date">Appointment Date</label>
+        <input type="date" id="appointment_date" formControlName="appointment_date" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="time_slot">Time Slot</label>
+        <select id="time_slot" formControlName="time_slot" class="form-control">
+          <option value="" disabled>Select Time Slot</option>
+          <option value="09:00-09:30">09:00-09:30</option>
+          <option value="09:30-10:00">09:30-10:00</option>
+          <option value="10:00-10:30">10:00-10:30</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary btn-block mt-4">Rechedule Appointment</button>
+    </form>
+  
+    <!-- <div *ngIf="showBill" class="mt-5 p-4 bg-white rounded shadow">
+      <h3 class="text-center text-success">Appointment Bill</h3>
+      <p><strong>Patient ID:</strong> {{bill.patientId}}</p>
+      <p><strong>Consulted Doctor:</strong> {{bill.doctor}}</p>
+      <p><strong>OP ID Validity:</strong> {{bill.opidValidity}}</p>
+      <p><strong>Consultation Fee:</strong> ${{bill.consultationFee}}</p>
+      <p><strong>Registration Fee:</strong> ${{bill.registrationFee}}</p>
+      <p><strong>Total:</strong> ${{bill.total}}</p>
+    </div> -->
+  </div>

@@ -1,0 +1,71 @@
+<br>
+<app-navbar></app-navbar>
+<br>
+<br>
+<!-- to search -->
+<div class="container">
+    <div class="header">
+        <div class="form-control">
+            <input class="form-control" type="text" placeholder="search text here....." [(ngModel)]="term">
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Add a button to add patients -->
+<div class="container">
+    <a [routerLink]="['/receptionist/patient_add']" role="button" class="btn btn-outline-secondary custom-margin">
+        <span><i class="fa fa-user-plus fa-1g"></i></span><br>
+        Add New Patient
+    </a>
+</div>
+
+<!-- <div class="container">
+    <a [routerLink]="['/receptionist/appointment_add']" role="button" class="btn btn-outline-secondary custom-margin">
+        <span><i class="fa fa-user-plus fa-1g"></i></span><br>
+        Book New Appoinment
+    </a>
+</div> -->
+<br>
+<table class="table table-bordered table-stripped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Op Id</th>
+            <th>Name</th>
+            <!-- <th>Gender</th> -->
+            <th>Email</th>
+            <th>Dob</th>
+            <th>Age</th>
+            <th>Blood Group</th>
+            <th>Mobile</th>
+            <th>Emergency Contact</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let patient of receptionistService.patient_details | filter: term">
+            <td>{{ patient.id }}</td>
+            <td>{{ patient.opid }}</td>
+            <td>{{ patient.name }}</td>
+            <!-- <td>{{ patient?.gender?.gender_type }}</td> -->
+            <td>{{ patient.email }}</td>
+            <td>{{ patient.dob }}</td>
+            <td>{{ patient.age}}</td>
+            <td>{{ patient.blood_group}}</td>
+            <td>{{ patient.mobile }}</td>
+            <td>{{ patient.emergency_contact}}</td>
+            <td>{{ patient.address }}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-danger" (click)="disablePatient(patient.id)">x</button>
+                <button class="btn btn-info" style="margin-left: 10px;" (click)="updatePatient(patient)">Edit</button>
+            </td>
+
+        </tr>
+    </tbody>
+
+</table>
+<!-- <app-footer></app-footer> -->
+<router-outlet></router-outlet>

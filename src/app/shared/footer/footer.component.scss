@@ -1,0 +1,17 @@
+.footer {
+    width: 100%;
+    background-color: #4ff1e3;
+    /* Dark blue background to match sidebar */
+    color: #fff;
+    /* White text */
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    left: 250px;
+    /* Same width as the sidebar */
+    text-align: center;
+}
+
+.footer-content {
+    margin: 0 auto;
+}

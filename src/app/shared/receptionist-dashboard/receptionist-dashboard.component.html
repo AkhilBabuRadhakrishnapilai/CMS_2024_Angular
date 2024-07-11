@@ -1,0 +1,38 @@
+<!-- receptionist-dashboard.component.html -->
+<!-- <div class="container">
+    <header class="header">
+        <h1>Welcome Receptionist</h1>
+    </header>
+    <div class="container">
+        <a [routerLink]="['/receptionist/patient_list']" role="button" class="btn btn-outline-secondary custom-margin">
+            Patient List</a>
+        <a [routerLink]="['/receptionist/appointment_add']" role="button"
+            class="btn btn-outline-secondary custom-margin">
+            Book Appointment</a>
+    </div>
+</div> -->
+<app-navbar></app-navbar>
+<!-- <app-sidebar></app-sidebar> -->
+<div class="main-content">
+    <div class="container">
+        <header class="header">
+            <h1>Welcome Receptionist</h1>
+        </header>
+        <div class="card">
+            <a [routerLink]="['/receptionist/patient_list']" role="button" class="btn btn-outline-secondary">
+                <i class="fas fa-list"></i> Patient List
+            </a>
+        </div>
+        <div class="card">
+            <a [routerLink]="['/receptionist/appointment_list']" role="button" class="btn btn-outline-secondary">
+                <i class="fas fa-list"></i> Appointment List
+            </a>
+        </div>
+        <div class="card">
+            <a [routerLink]="['/receptionist/appointment_add']" role="button" class="btn btn-outline-secondary">
+                <i class="fas fa-calendar-plus"></i> Book Appointment
+            </a>
+        </div>
+    </div>
+</div>
+<!-- <app-footer></app-footer> -->

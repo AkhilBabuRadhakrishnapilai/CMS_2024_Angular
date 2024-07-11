@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/shared/services/admin.service';
 })
 export class AdminListComponent implements OnInit {
   searchTerm='';
+  searchTerm='';
 
   constructor(public service:AdminService,public router:Router) { }
 
