@@ -13,7 +13,7 @@ import { Token } from '@angular/compiler';
 export class AuthComponent implements OnInit {
   loginForm!:FormGroup;
   isSubmitted:boolean=false;
-  error='';
+  error:string | null=null;
   loginUser:User=new User();
   //formBuilder
   constructor(private formBuilder:FormBuilder,private loginService:LoginService,private router:Router) { }
@@ -22,7 +22,7 @@ export class AuthComponent implements OnInit {
     this.loginForm=this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
       password:['',Validators.required]
-    })
+    });
   }
 
   //control the validation
@@ -32,6 +32,7 @@ export class AuthComponent implements OnInit {
 
   //functionality - on submit
   loginCredentials(){
+    this.isSubmitted = true;
     //checking the form is valid
     if(this.loginForm.invalid){
       this.error = "please enter the username and password";
