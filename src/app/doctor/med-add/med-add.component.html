@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h3>Add Medicine</h3>
+    <hr>
+
+
+
+    <form name="formEmployee" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        
+
+        <div class="form-group">
+            <label>Appointment ID:</label>
+            <input name="med" #med="ngModel" [(ngModel)]="doctorService.formMedData.med.id" required class="form-control">
+            <div class="validation-error" *ngIf="med.touched && med.invalid">
+                <div>labtests is required</div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label>Medicine:</label>
+            <select name="med_list" #med_list="ngModel" [(ngModel)]="doctorService.formMedData.med_list" multiple required class="form-control">
+              <option *ngFor="let med of availableMedicine" [value]="med.id">{{ med.name }}</option>
+            </select>
+            <div class="validation-error" *ngIf="med_list.touched && med_list.invalid">
+              <div>Medicine are required</div>
+            </div>
+          </div>
+          <br>
+        
+          <div class="form-group">
+            <label>Morning:</label>
+            <input name="morning" #morning="ngModel" [(ngModel)]="doctorService.formMedData.morning" required class="form-control">
+            <div class="validation-error" *ngIf="morning.touched && morning.invalid">
+                <div>morning is required</div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label>Noon:</label>
+            <input name="noon" #noon="ngModel" [(ngModel)]="doctorService.formMedData.noon" required class="form-control">
+            <div class="validation-error" *ngIf="noon.touched && noon.invalid">
+                <div>noon is required</div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label>Night:</label>
+            <input name="night" #night="ngModel" [(ngModel)]="doctorService.formMedData.night" required class="form-control">
+            <div class="validation-error" *ngIf="night.touched && night.invalid">
+                <div>Night is required</div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label>frequency:</label>
+            <input name="frequency" #frequency="ngModel" [(ngModel)]="doctorService.formMedData.frequency" required class="form-control">
+            <div class="validation-error" *ngIf="frequency.touched && frequency.invalid">
+                <div>frequency is required</div>
+            </div>
+        </div>
+        <br>
+
+
+        <div class="form-group">
+            <label>Date of Prescribition:</label>
+            <input type="date" name="date_of_prescribition" #date_of_prescribition="ngModel" [(ngModel)]="doctorService.formMedData.date_of_prescribition" required class="form-control">
+            <div class="validation-error" *ngIf="date_of_prescribition.touched && date_of_prescribition.invalid">
+                <div>Next visit is required</div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <button type="submit" [disabled]="!form.valid" class="btn btn-lg btn-primary form-control">Submit</button>
+        </div>
+        
+    </form>
+</div>
+
+<router-outlet></router-outlet>

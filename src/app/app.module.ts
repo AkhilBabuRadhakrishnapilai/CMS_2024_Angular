@@ -11,6 +11,11 @@ import { SharedModule } from './shared/shared.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
+import { DiagnosisAddComponent } from './doctor/diagnosis-add/diagnosis-add.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterPipe } from './filter.pipe'; // Import your custom filter pipe
+// import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [

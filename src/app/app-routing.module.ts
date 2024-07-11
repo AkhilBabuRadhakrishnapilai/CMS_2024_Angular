@@ -8,6 +8,9 @@ import { ReportsComponent } from './reports/reports.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './shared/home/home.component';
 import { ReceptionistComponent } from './receptionist/receptionist.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { SharedComponent } from './shared/shared.component';
+import { DiagnosisAddComponent } from './doctor/diagnosis-add/diagnosis-add.component';
 
 const routes: Routes = [
   { path:'stock',component:StockComponent,loadChildren : ()=>import('./stock/stock.module')
@@ -28,6 +31,9 @@ const routes: Routes = [
     loadChildren:()=>import('./auth/auth.module')
     .then(x=>x.AuthModule)
   },
+
+  {path:'', redirectTo:'shared/doctordashboard',pathMatch:'full'},
+
   {
     path:'admin',component:AdminComponent,
     loadChildren:()=>import('./admin/admin.module')
@@ -42,7 +48,22 @@ const routes: Routes = [
   },
   { path:'shared',component:SharedComponent,loadChildren : ()=>import('./shared/shared.module')
     .then(x=>x.SharedModule)
-  }
+  },
+
+  {
+    path: 'doctor', component:DoctorComponent,
+    loadChildren:() => import('./doctor/doctor.module')
+    .then(x=>x.DoctorModule)
+  },
+
+  { path: 'doctor/diagnosisadd/:id', component: DiagnosisAddComponent },
+
+  {
+    path: 'shared', component:SharedComponent,
+    loadChildren:()=>import('./shared/shared.module')
+    .then(x=>x.SharedModule)
+  },
+
 ];
 
 @NgModule({

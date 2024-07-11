@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container">
+
+    <div class="jumbotron sm">
+        <h5 class="display-4">Lab Test List</h5>
+    </div>
+    <br>
+    <div class="input-group mb-3">
+        <input type="search" class="form-control rounded-pill border-0 py-3" placeholder="Search equipments..." [(ngModel)]="term" aria-label="Search tests" aria-describedby="search-addon">
+        <div class="input-group-append">
+          <button class="btn btn-primary rounded-pill py-3 px-4" type="button" id="search-addon">
+            <i ></i> Search
+          </button>
+        </div>
+      </div>
+    <table class="table table-bordered table-stripped">
+        <thead>
+            <tr>
+                <th>SI.NO</th>
+                <th>Op Id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Lab Tests Recommended</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let doctor of doctorService.labtest_details2 |filter:term| paginate: { itemsPerPage: 3, currentPage: p }">
+                <td>{{ doctor.id }}</td>
+                <td>{{ doctor.labtests.appointment.patient.opid}}</td>
+                <td>{{ doctor.labtests.appointment.patient.name }}</td>
+                <td>{{ doctor.labtests.appointment.patient.gender }}</td>
+                <td>{{ doctor.labtests.appointment.patient.age }}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let test of doctor.lab_tests_details">
+                          {{ test.test_name }}
+                        </li>
+                      </ul>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-outline-danger" >View</button>
+                    <button class="btn btn-info" style="margin-left: 10px;">Edit</button>
+                </td>
+    
+            </tr>
+        </tbody>
+    
+    </table>
+
+    <div class="footer">
+        <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+    </div>
+    </div>
+    <router-outlet></router-outlet>

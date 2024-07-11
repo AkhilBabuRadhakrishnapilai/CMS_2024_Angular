@@ -10,7 +10,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CommonHeaderComponent } from './common-header/common-header.component';
 import { HomelabComponent } from './homelab/homelab.component';
-
+import { NavbarComponent } from './navbar/navbar.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { DoctordashboardComponent } from './doctordashboard/doctordashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,18 @@ import { HomelabComponent } from './homelab/homelab.component';
     NavbarComponent,
     SidebarComponent,
     FooterComponent,
-    CommonHeaderComponent
+    CommonHeaderComponent,
+    NavbarComponent,
+    DoctordashboardComponent
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    NgxPaginationModule,
+    FormsModule 
+  
   ],
-  exports:[NavbarComponent,SidebarComponent,FooterComponent,CommonHeaderComponent]
+  exports:[NavbarComponent,SidebarComponent,FooterComponent,CommonHeaderComponent],
+  exports:[NavbarComponent]
 })
 export class SharedModule { }
