@@ -13,8 +13,7 @@
 
     <div class="form-group">
       <label for="patient">Patient</label>
-      <input type="number" id="patient" formControlName="patient" class="form-control" placeholder="Patient Id"
-        readonly>
+      <input type="number" id="patient" formControlName="patient" class="form-control" placeholder="Patient Id">
       <!-- Optional: Show error message if OP Id is invalid and touched -->
       <div *ngIf="appointmentForm.get('opid')?.invalid && appointmentForm.get('opid')?.touched" class="text-danger">
         OP Id is required.

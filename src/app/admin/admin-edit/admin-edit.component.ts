@@ -63,9 +63,8 @@ export class AdminEditComponent implements OnInit {
         password:formdata.password
       }
     }
-    else if(formdata.role==undefined){
+    else if(formdata.role==2){
       this.addData = {
-        emp_id:formdata.emp_id,
         qualification_id:formdata.qualification,
         specialization_id:null,
         gender_id:formdata.gender,
@@ -81,6 +80,75 @@ export class AdminEditComponent implements OnInit {
         password:formdata.password
       }
     }
+    else if(formdata.role==1){
+      this.addData = {
+        qualification_id:formdata.qualification,
+        specialization_id:null,
+        gender_id:formdata.gender,
+        role_id:formdata.role,
+        first_name:formdata.first_name,
+        last_name:formdata.last_name,
+        address:formdata.address,
+        contact_number:formdata.contact_number,
+        fees:formdata.fees,
+        dob:formdata.dob,
+        date_of_joining:formdata.date_of_joining,                        
+        email:formdata.email,
+        password:formdata.password
+      }
+    }
+    else if(formdata.role==4){
+      this.addData = {
+        qualification_id:formdata.qualification,
+        specialization_id:null,
+        gender_id:formdata.gender,
+        role_id:formdata.role,
+        first_name:formdata.first_name,
+        last_name:formdata.last_name,
+        address:formdata.address,
+        contact_number:formdata.contact_number,
+        fees:formdata.fees,
+        dob:formdata.dob,
+        date_of_joining:formdata.date_of_joining,                        
+        email:formdata.email,
+        password:formdata.password
+      }
+    }
+    else if(formdata.role==5){
+      this.addData = {
+        qualification_id:formdata.qualification,
+        specialization_id:null,
+        gender_id:formdata.gender,
+        role_id:formdata.role,
+        first_name:formdata.first_name,
+        last_name:formdata.last_name,
+        address:formdata.address,
+        contact_number:formdata.contact_number,
+        fees:formdata.fees,
+        dob:formdata.dob,
+        date_of_joining:formdata.date_of_joining,                        
+        email:formdata.email,
+        password:formdata.password
+      }
+    }
+    else if(formdata.role==6){
+      this.addData = {
+        qualification_id:formdata.qualification,
+        specialization_id:null,
+        gender_id:formdata.gender,
+        role_id:formdata.role,
+        first_name:formdata.first_name,
+        last_name:formdata.last_name,
+        address:formdata.address,
+        contact_number:formdata.contact_number,
+        fees:formdata.fees,
+        dob:formdata.dob,
+        date_of_joining:formdata.date_of_joining,                        
+        email:formdata.email,
+        password:formdata.password
+      }
+    }
+    console.log(this.addData,"here")
     this.service.updateUser(this.addData).subscribe((result:any)=>{
       console.log(result.value);
       console.log(result.emp_id,"in updateUser")
